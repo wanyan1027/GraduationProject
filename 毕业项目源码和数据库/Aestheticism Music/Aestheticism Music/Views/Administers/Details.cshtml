@@ -1,0 +1,42 @@
+﻿@model Aestheticism_Music.Models.Administer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>查看详情</h2>
+
+<div>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>昵称</th>
+            <th>@Html.DisplayFor(model => model.AdministerName)</th>
+        </tr>
+
+        <tr>
+            <th>账号</th>
+            <th>@Html.DisplayFor(model => model.AdministerLoginName)</th>
+        </tr>
+
+        <tr>
+            <th>密码</th>
+            <th>@Html.DisplayFor(model => model.AdministerLoginPwd)</th>
+        </tr>
+
+        <tr>
+            <th>电话</th>
+            <th>@Html.DisplayFor(model => model.AdministerPhone)</th>
+        </tr>
+
+        <tr>
+            <th>邮箱</th>
+            <th>@Html.DisplayFor(model => model.AdministerEmail)</th>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { id = Model.AdministerID }) |
+    @Html.ActionLink("返回", "Index")
+</p>

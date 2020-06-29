@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AestheticismMSModelStoreContainer" CdmEntityContainer="AestheticismMSEntities">
+    <EntitySetMapping Name="Administer">
+      <EntityTypeMapping TypeName="AestheticismMSModel.Administer">
+        <MappingFragment StoreEntitySet="Administer">
+          <ScalarProperty Name="AdministerID" ColumnName="AdministerID" />
+          <ScalarProperty Name="AdministerName" ColumnName="AdministerName" />
+          <ScalarProperty Name="AdministerLoginName" ColumnName="AdministerLoginName" />
+          <ScalarProperty Name="AdministerLoginPwd" ColumnName="AdministerLoginPwd" />
+          <ScalarProperty Name="AdministerPhone" ColumnName="AdministerPhone" />
+          <ScalarProperty Name="AdministerEmail" ColumnName="AdministerEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discuss">
+      <EntityTypeMapping TypeName="AestheticismMSModel.Discuss">
+        <MappingFragment StoreEntitySet="Discuss">
+          <ScalarProperty Name="DiscussID" ColumnName="DiscussID" />
+          <ScalarProperty Name="DiscussContent" ColumnName="DiscussContent" />
+          <ScalarProperty Name="DiscussTime" ColumnName="DiscussTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="MusicListID" ColumnName="MusicListID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MusicList">
+      <EntityTypeMapping TypeName="AestheticismMSModel.MusicList">
+        <MappingFragment StoreEntitySet="MusicList">
+          <ScalarProperty Name="MusicListID" ColumnName="MusicListID" />
+          <ScalarProperty Name="MusicListName" ColumnName="MusicListName" />
+          <ScalarProperty Name="MusicListFileSize" ColumnName="MusicListFileSize" />
+          <ScalarProperty Name="MusicListPath" ColumnName="MusicListPath" />
+          <ScalarProperty Name="SingerID" ColumnName="SingerID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MusicListType">
+      <EntityTypeMapping TypeName="AestheticismMSModel.MusicListType">
+        <MappingFragment StoreEntitySet="MusicListType">
+          <ScalarProperty Name="MusicListTypeID" ColumnName="MusicListTypeID" />
+          <ScalarProperty Name="SingerID" ColumnName="SingerID" />
+          <ScalarProperty Name="MusicListID" ColumnName="MusicListID" />
+          <ScalarProperty Name="SingerType" ColumnName="SingerType" />
+          <ScalarProperty Name="MusicListType1" ColumnName="MusicListType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Singer">
+      <EntityTypeMapping TypeName="AestheticismMSModel.Singer">
+        <MappingFragment StoreEntitySet="Singer">
+          <ScalarProperty Name="SingerID" ColumnName="SingerID" />
+          <ScalarProperty Name="SingerName" ColumnName="SingerName" />
+          <ScalarProperty Name="SingerSex" ColumnName="SingerSex" />
+          <ScalarProperty Name="SingerPohoto" ColumnName="SingerPohoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AestheticismMSModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMusic">
+      <EntityTypeMapping TypeName="AestheticismMSModel.UserMusic">
+        <MappingFragment StoreEntitySet="UserMusic">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
+          <ScalarProperty Name="UserLoginPwd" ColumnName="UserLoginPwd" />
+          <ScalarProperty Name="UserSongSheet" ColumnName="UserSongSheet" />
+          <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

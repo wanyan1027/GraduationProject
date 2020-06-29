@@ -1,14 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 你的Aestheticism Music网站-属于你的网站</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @using Aestheticism_Music.Models;
+    @{
+        UserMusic user = Session["user"] as UserMusic;
+        Administer admin = Session["admin"] as Administer;
+    }
 </head>
-<body>
+<body style="background-color:antiquewhite">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,33 +22,36 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Content/images/Logo.jpg" />
-                @Html.ActionLink("Aestheticism Music", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Aestheticism Music", "Index", "Music", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("发现音乐", "Index", "Home")
+                    <li>@Html.ActionLink("首页", "Index", "Music")</li>
+                    <li>@Html.ActionLink("歌手", "Index", "Singer")</li>
+                    <li>@Html.ActionLink("最新音乐", "Index", "Music")</li>
+                    <li>@Html.ActionLink("联系我们", "Index", "Home")</li>
                     <li>
-                        @if (list != null)
+                        @if (admin != null)
                         {
-                            foreach (var item in list)
-                            {
-                            <li><a href="@item.Url">@item.Name</a></li>
+                            <span style="color:white">欢迎：@admin.AdministerName</span>
+                            <form action="/Home/ExitAdmin">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+                            </form>
                         }
-                    }
-                    </ul>
+                    </li>
+                </ul>
                 <div class="media-middle navbar-right">
                     @if (user != null)
                     {
-                        <span style="color:white">欢迎：@user.Name</span>
+                        <span style="color:white">欢迎：@user.UserName</span>
                         <form action="/Home/Exit">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
                         </form>
                     }
                     else
                     {
-                        <a href="/Home/Login" class="btn btn-primary">用户登录</a>
-                        <a href="/Home/MangerLogin" class="btn btn-primary">管理员登录</a>
+                        <a href="/Home/Login" class="btn btn-toolbar">用户登录</a>
+                        <a href="/Home/MangerLogin" class="btn btn-toolbar">管理员登录</a>
                     }
                 </div>
                 </div>
@@ -53,7 +61,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 归于 Aestheticism Music 所有</p>
+            <p></p>
         </footer>
     </div>
 

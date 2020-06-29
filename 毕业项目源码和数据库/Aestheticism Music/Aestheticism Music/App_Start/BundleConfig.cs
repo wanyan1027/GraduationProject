@@ -25,6 +25,14 @@ namespace Aestheticism_Music
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap4").Include(
+                      "~/Scripts/jquery--{version}.slim.min.js",
+                      "~/Scripts/popper.min.js",
+                      "~/Scripts/bootstrap.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css4").Include(
+                      "~/Content/bootstrap.min.css"));
         }
     }
 }

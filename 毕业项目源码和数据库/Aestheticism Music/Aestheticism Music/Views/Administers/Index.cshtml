@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Aestheticism_Music.Models.Administer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>管理员信息</h2>
+
+<p>
+    @Html.ActionLink("添加", "Create")
+</p>
+
+
+<form class="layui-form" action="/Administers/Index" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">昵称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="AdministerName" placeholder="请输入昵称" autocomplete="off" class="layui-input" value="@ViewBag.name">
+            <input type="submit" value="查询" class="layui-btn" />
+        </div>
+    </div>
+</form>
+
+
+
+<table class="lay-even layui-table">
+    <tr>
+        <th>
+            昵称
+        </th>
+        <th>
+            账号
+        </th>
+        <th>
+            密码
+        </th>
+        <th>
+            电话
+        </th>
+        <th>
+            邮箱
+        </th>
+        <th>操作</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdministerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdministerLoginName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdministerLoginPwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdministerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdministerEmail)
+        </td>
+        <td>
+            @Html.ActionLink("修改", "Edit", new { id=item.AdministerID }) |
+            @Html.ActionLink("查看详情", "Details", new { id=item.AdministerID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.AdministerID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model Aestheticism_Music.Models.MusicList
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>修改</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>音乐列表</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MusicListID)
+
+<form class="layui-form" action="/MusicLists/Edit">
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌曲名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="MusicListName" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.MusicListName">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌曲大小：</label>
+        <div class="layui-input-block">
+            <input type="text" name="MusicListFileSize" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.MusicListFileSize">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌曲地址：</label>
+        <div class="layui-input-block">
+            <input type="text" name="MusicListPath" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.MusicListPath">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌手：</label>
+        <div class="layui-input-block">
+            <input type="text" name="SingerName" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.Singer.SingerName">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌曲发布者：</label>
+        <div class="layui-input-block">
+            <input type="text" name="UserName" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.UserMusic.UserName">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="submit" value="保存" class="layui-btn" />
+            @Html.ActionLink("返回", "Index")
+        </div>
+    </div>
+</form>
+</div>
+}

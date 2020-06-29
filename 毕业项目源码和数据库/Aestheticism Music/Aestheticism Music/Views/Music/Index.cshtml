@@ -1,0 +1,859 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Aestheticism_Music.Models;
+@model List<MusicList>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- bootstrap-css -->
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <!--// bootstrap-css -->
+    <!-- css -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <!--// css -->
+    <!-- gallery -->
+    <link href="~/Content/css/cm-overlay.css" rel="stylesheet" />
+    <!-- //gallery -->
+    <!-- font-awesome icons -->
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <!-- //font-awesome icons -->
+    <!-- font -->
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+
+    <script src="~/Scripts/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.js"></script>
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- animation -->
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- //animation -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner jarallax">
+        <div class="agileinfo-dot">
+            <div class="header">
+                <div class="container">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="agileits-logo">
+                                <h1><a href="index.html"><img src="~/Content/images/logo1.png" /> Ae Music</a></h1>
+                            </div>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav>
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.html">首页</a></li>
+                                    <li><a href="#about" class="scroll">关于我们</a></li>
+                                    <li><a href="#events" class="scroll">歌手分类</a></li>
+                                    <li><a href="#team" class="scroll">团队</a></li>
+                                    <li><a href="#news" class="scroll">歌曲</a></li>
+                                    <li><a href="#mail" class="scroll">联系我们</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+            </div>
+            <div class="w3layouts-banner-info">
+                <div class="container">
+                    <div class="w3ls-text">
+                        <h2>Come To Music</h2>
+                    </div>
+                    <div class="w3-arrow bounce animated">
+                        <a href="#indro" class="scroll"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- 介绍 -->
+    <div class="introduction" id="indro">
+        <div class="container">
+            <div class="w3l-heading">
+                <h3>介绍</h3>
+                <div class="w3ls-border"> </div>
+            </div>
+            <div class="introduction-info">
+                <p>
+                    这本书的目录在最后一页，如果没有把之前的空白页填满，你将永远无法看到最后一页。这本书的名字，叫人生。从出生时，发出第一声对这个世界的呼喊起，就是提笔这本书的第一页。人生很精彩，内容繁多，纷乱复杂，所以我们可以把它依次归类，写成一系列的书。比如爱情，一段感情结束，就意味着这本书写到了终章。我尤爱张嘉佳的一句话：花盛开就是一句，夜漫过就是一篇。黄昏时开始书写，黎明时就是无数的扉页。全世界拼成诗，我爱你当作最后一行。世事难料，或许最后一页，不是我爱你，而是我爱过你。
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- //介绍 -->
+    <!-- 关于我们 -->
+    <div class="about" id="about">
+        <div class="container">
+            <div class="w3l-heading about-heading">
+                <h3>关于我们</h3>
+                <div class="w3ls-border about-border"> </div>
+            </div>
+            <div class="agileits-about-grids">
+                <div class="about-grids">
+                    <div class="col-md-6 about-grid">
+                        <div class="col-xs-3 about-grid-left">
+                            <span class="glyphicon glyphicon-asterisk effect-1" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-9 about-grid-right">
+                            <h4>Cum soluta nobis est</h4>
+                            <p>
+                                Itaque earum rerum hic tenetur a sapiente delectus
+                                reiciendis maiores alias consequatur aut
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="col-md-6 about-grid">
+                        <div class="col-xs-3 about-grid-left">
+                            <span class="glyphicon glyphicon-road effect-1" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-9 about-grid-right">
+                            <h4>Soluta nobis est cum</h4>
+                            <p>
+                                Itaque earum rerum hic tenetur a sapiente delectus
+                                reiciendis maiores alias consequatur aut
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="about-grids1">
+                    <div class="col-md-6 about-grid">
+                        <div class="col-xs-3 about-grid-left">
+                            <span class="glyphicon glyphicon-plane effect-1" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-9 about-grid-right">
+                            <h4>Eligendi cum soluta nobis</h4>
+                            <p>
+                                Itaque earum rerum hic tenetur a sapiente delectus
+                                reiciendis maiores alias consequatur aut
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="col-md-6 about-grid">
+                        <div class="col-xs-3 about-grid-left">
+                            <span class="glyphicon glyphicon-bed effect-1" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-9 about-grid-right">
+                            <h4>Nobis cum soluta est</h4>
+                            <p>
+                                Itaque earum rerum hic tenetur a sapiente delectus
+                                reiciendis maiores alias consequatur aut
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //about -->
+    <!-- gallery -->
+    <div class="gallery" id="events">
+        <div class="container">
+            <div class="w3l-heading">
+                <h3>歌手分类</h3>
+                <div class="w3ls-border"> </div>
+            </div>
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home-main" aria-expanded="true">部分歌手</a></li>
+                    <li role="presentation"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">男歌手</a></li>
+                    <li role="presentation"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">女歌手</a></li>
+                    <li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">组合</a></li>
+                    <li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">外国歌手</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    @* 全部歌手 *@
+                    <div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g1.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g1.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>林俊杰</h5>
+                                    <p>非常棒的男歌手！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g2.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>杨丞琳</h5>
+                                    <p>非常棒的女歌手！ </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g3.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>戚薇</h5>
+                                    <p>非常有气质的女歌手！  </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g4.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g4.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>周杰伦</h5>
+                                    <p>非常棒的男歌手！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g5.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g5.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>鹿晗</h5>
+                                    <p>非常帅的男歌手！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g6.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g6.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>易烊千玺</h5>
+                                    <p>非常棒的男歌手！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g7.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g7.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>泰勒-斯威夫特</h5>
+                                    <p>非常非常棒的欧美女歌手！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g1.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g1.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>贾斯汀-比伯</h5>
+                                    <p>非常非常棒的欧美男歌手！ </p>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    @* 男歌手 *@
+                    <div role="tabpanel" class="tab-pane fade" id="learning" aria-labelledby="learning-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g2.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>林俊杰</h5>
+                                    <p>是一个有故事的男歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>鹿晗</h5>
+                                    <p>拥有着让人无法控制的容颜的歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>周杰伦</h5>
+                                    <p>有着别人无法拥有的才华的歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>易烊千玺</h5>
+                                    <p>有着同龄人没有的成熟与成就的歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>贾斯汀-比伯</h5>
+                                    <p>来自欧美的同龄小哥哥</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    @* 女歌手 *@
+                    <div role="tabpanel" class="tab-pane fade" id="playing" aria-labelledby="playing-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g4.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g4.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>戚薇</h5>
+                                    <p>拥有气质霸气的女歌手，人人都爱！</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g5.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g5.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>泰勒-斯威夫特</h5>
+                                    <p>小编最最喜欢的欧美女歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g6.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g6.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>杨丞琳</h5>
+                                    <p>《年轮说》最近很火哦！</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    @* 组合 *@
+                    <div role="tabpanel" class="tab-pane fade" id="painting" aria-labelledby="painting-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g1.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g1.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>筷子兄弟</h5>
+                                    <p>《父亲》听说很感人！ </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g2.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g2.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>TFBoys</h5>
+                                    <p>三小只很努力，有着别的同龄人没有的成就</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g3.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>S.H.E</h5>
+                                    <p>还是一如既往的让人喜欢</p>
+                                </div>
+                            </div>
+                            <div class="w3_tab_img">
+                                <div class="col-sm-3 w3_tab_img_left">
+                                    <div class="demo">
+                                        <a class="cm-overlay" href="~/Content/images/g4.jpg">
+                                            <figure class="imghvr-shutter-in-out-diag-2">
+                                                <img src="~/Content/images/g4.jpg" alt=" " class="img-responsive">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="agile-gallery-info">
+                                        <h5>苏打绿</h5>
+                                        <p>吴青峰让我印象深刻</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="school" aria-labelledby="school-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g4.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g4.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>泰勒-斯威夫特</h5>
+                                    <p>小编最最喜欢的欧美女歌手</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="~/Content/images/g4.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="~/Content/images/g4.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="agile-gallery-info">
+                                    <h5>贾斯汀-比伯</h5>
+                                    <p>来自欧美的同龄小哥哥</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="js/jquery.tools.min.js"></script>
+            <script src="js/jquery.mobile.custom.min.js"></script>
+            <script src="js/jquery.cm-overlay.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.cm-overlay').cmOverlay();
+                });
+            </script>
+        </div>
+    </div>
+    <!-- //gallery -->
+    <!-- 团队 -->
+    <div class="team jarallax" id="team">
+        <div class="team-dot">
+            <div class="container">
+                <div class="w3l-heading about-heading">
+                    <h3>团队</h3>
+                    <div class="w3ls-border about-border"> </div>
+                </div>
+                <div class="agileits-team-grids">
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="images/t1.jpg" alt="" />
+                            <div class="team-caption">
+                                <h4>Justo congue</h4>
+                                <p>Fusce laoreet</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="images/t2.jpg" alt="" />
+                            <div class="team-caption">
+                                <h4>Justo congue</h4>
+                                <p>Fusce laoreet</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="images/t3.jpg" alt="" />
+                            <div class="team-caption">
+                                <h4>Justo congue</h4>
+                                <p>Fusce laoreet</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="images/t4.jpg" alt="" />
+                            <div class="team-caption">
+                                <h4>Justo congue</h4>
+                                <p>Fusce laoreet</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //team -->
+    <!-- 歌曲列表 -->
+    <div class="news" id="news">
+        <div class="container">
+            <div class="w3l-heading">
+                <h3>歌曲列表</h3>
+                <div class="w3ls-border"> </div>
+            </div>
+            <div class="wthree-news-grids">
+                <!-- date -->
+                <div id="design" class="date">
+                    <div id="cycler">
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>03 <span>Jan 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Lorem ipsum dolor sit amet</a>
+                                <p>Morbi felis sapien, pulvinar quis pharetra rutrum, auctor sit amet ipsum. Aliquam dictum massa ut porttitor ultricies. Duis non enim eros. Aliquam sed porttitor lectus.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>08 <span>Sept 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Cras vestibulum dapibus <span class="blinking"><img src="images/new.png" alt="" /></span></a>
+                                <p>Curabitur egestas porttitor erat quis cursus. Aliquam nec sapien urna. Curabitur tincidunt dolor sed metus maximus dapibus. Integer ligula enim, condimentum id commodo eget</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>17 <span>July 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Fusce id molestie mauris</a>
+                                <p>Cras blandit felis augue, nec faucibus lectus hendrerit vitae. Vestibulum rutrum, magna id pellentesque fermentum, est risus scelerisque leo, at consequat nunc sem non tortor.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>15 <span>Aug 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Aliquam vulputate arcu enim <span class="blinking"><img src="images/new.png" alt="" /></span></a>
+                                <p>Aliquam sed porttitor lectus. Donec sagittis magna non eros convallis, dapibus iaculis nunc tincidunt. Pellentesque quam nisi, cursus non vestibulum ac, vehicula eu tortor.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>24 <span>Sept 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Donec ac turpis aliquet</a>
+                                <p>Curabitur facilisis fermentum gravida. Nunc suscipit nec enim ut suscipit. Mauris mollis lectus at mi vehicula rutrum vel non dolor. Nulla ut purus arcu. Pellentesque sed finibus</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="wthree-news-grid">
+                            <div class="wthree-news-left">
+                                <h4>24 <span>Oct 2017</span></h4>
+                            </div>
+                            <div class="date-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"> Morbi nec justo ut ex rhoncus luctus</a>
+                                <p>Nullam accumsan imperdiet elementum. Quisque volutpat sapien sed ipsum condimentum elementum. Suspendisse potenti. Maecenas fermentum justo sit amet interdum viverra.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <script>
+                        function blinker() {
+                            $('.blinking').fadeOut(500);
+                            $('.blinking').fadeIn(500);
+                        }
+                        setInterval(blinker, 1000);
+                    </script>
+                    <script>
+                        function cycle($item, $cycler) {
+                            setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                            $item.slideUp(1000, function () {
+                                $item.appendTo($cycler).show();
+                            });
+                        }
+                        cycle($('#cycler div:first'), $('#cycler'));
+                    </script>
+                </div>
+                <!-- //date -->
+            </div>
+        </div>
+    </div>
+    <!-- //news -->
+    <!-- 歌曲列表的模态框 -->
+    <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">歌曲介绍</h4>
+                    <h5>均来自于21世纪</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="agileits-w3layouts-info">
+                        <img src="images/1.jpg" alt="" />
+                        <p>
+                            《修炼爱情》林俊杰第十张个人专辑《因你而在Stories Untold》第二波主打歌《修炼爱情》MV，该MV以动漫的形式呈现，而讲述的则是心中最沉痛的一段回忆。这支MV是献给在MI185空难中的遇难者，更是献给在此次事故中遇难的自己最亲爱的朋友。据林俊杰回忆，16岁时，有位印尼华侨女生向他告白，主动会送早餐到他家，但林俊杰没有“触电”的感觉，婉拒她的好意。虽没成为情侣却变成好朋友，她还牵红线让林俊杰认识了当时的初恋情人,但两个人交往了几个月，草草收场。然而在1997年，这位女友人搭上了死亡航班，飞机在空中粉碎性解体，机组人员和乘客无一生还。“我在隔天看报纸，在遇难名单上看到她的名字，从遗物照片中清楚的看到了自己的照片......”突然的事故让林俊杰难以接受，一直将这段回忆存封不向谁提起，“当时还太小，不懂该怎么去表达那种情感，也不敢去面对这件事。”她和双亲在那件事件中遇难，不久认领那位女生遗物的阿姨把当中的照片主动还给了林俊杰。林俊杰说“照片是她的遗物，但阿姨觉得应该还我，虽然和她说清楚了，在和她的朋友交往，但知道她还是会随身带着我的照片，心里就是不好过。”2013年正值林俊杰出道10年，唱片公司在企划其新专辑时希望他能讲出不曾说过的内心秘密，林俊杰才决定自揭伤疤，坦言当年事情来得太突然，有太多话来不及说，他一直还保存对方留下的那张照片，“那起空难始终没查出原因，去年有电视播出，我还是忍不住看完了，仍对当年的意外难以释怀。”他还保留着照片，至今还会睹物思人，“照片还留有汽油味，但留住，是为了留个纪念。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //modal -->
+    <!-- contact -->
+    <div class="contact" id="mail">
+        <div class="container">
+            <div class="w3l-heading about-heading">
+                <h3>每一首歌都有每一首歌曲存在的意义</h3>
+                <div class="w3ls-border about-border"> </div>
+            </div>
+            <div class="introduction-info contact-info">
+                <p>
+                    听音乐放松你的心情！歌手给我们带来的每一首经典歌曲的背后都有个感人的故事。而他们用这些故事编成歌分享给了我们，感同身受，每当出新歌时，我们都体会不到歌的故事，只当它只是一首歌，很好听，当理解了这些歌的含义，感动的痛哭流涕。谢谢他们给我们带来的快乐。也希望他们能快快乐乐的创造音乐！
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="contact-form">
+        <div class="col-md-4 contact-form-left">
+            <h5>联系我们</h5>
+            <div class="address-grids">
+                <div class="address-grid">
+                    <div class="address-icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="address-info">
+                        <p>
+                            Eiusmod Tempor inc<br>
+                            St Dolore Place,<br>
+                            Kingsport 56777.
+                        </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="address-grid">
+                    <div class="address-icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="address-info">
+                        <p>
+                            +1 234 567 8901<br>
+                            +1 345 678 9012
+                        </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="address-grid">
+                    <div class="address-icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="address-info">
+                        <p><a href="mailto:example@email.com">mail@example.com</a></p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 contact-form-right">
+            <h5>空白页</h5>
+            <div class="contact-form-grid">
+                <form action="#" method="post">
+                    <div class="fields-grid">
+                        <div class="styled-input agile-styled-input-top">
+                            <input type="text" name="Full Name" required="">
+                            <label>Full Name</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input agile-styled-input-top">
+                            <input type="text" name="Phone" required="">
+                            <label>Phone</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="email" name="Email" required="">
+                            <label>Email</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="text" name="Subject" required="">
+                            <label>Subject</label>
+                            <span></span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="styled-input textarea-grid">
+                        <textarea name="Message" required=""></textarea>
+                        <label>Message</label>
+                        <span></span>
+                    </div>
+                    <input type="submit" value="SEND">
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!-- //contact -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2020.5.20 Company name All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <script src="js/jarallax.js"></script>
+    <script src="js/SmoothScroll.min.js"></script>
+    <script type="text/javascript">
+        /* init Jarallax */
+        $('.jarallax').jarallax({
+            speed: 0.5,
+            imgWidth: 1366,
+            imgHeight: 768
+        })
+    </script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+</body>
+</html>

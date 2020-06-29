@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Aestheticism_Music.Models.MusicList>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>歌曲表</h2>
+
+<p>
+    @Html.ActionLink("添加", "Create")
+</p>
+
+<form class="layui-form" action="/MusicLists/Index" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌曲名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="MusicListName" placeholder="请输入歌曲名" autocomplete="off" class="layui-input" value="@ViewBag.name">
+            <input type="submit" value="查询" class="layui-btn" />
+        </div>
+    </div>
+</form>
+
+<table class="lay-even layui-table ">
+    <tr>
+        <th>
+            歌曲名
+        </th>
+        <th>
+            文件大小
+        </th>
+        <th>
+            歌曲地址
+        </th>
+        <th>
+            歌手
+        </th>
+        <th>
+            歌曲发布者
+        </th>
+        <th>操作</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicListName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicListFileSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicListPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Singer.SingerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserMusic.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("修改", "Edit", new { id=item.MusicListID }) |
+            @Html.ActionLink("查看详情", "Details", new { id=item.MusicListID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.MusicListID })
+        </td>
+    </tr>
+}
+
+</table>

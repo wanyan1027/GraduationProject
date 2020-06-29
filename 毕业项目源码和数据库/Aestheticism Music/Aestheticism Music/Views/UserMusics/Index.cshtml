@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Aestheticism_Music.Models.UserMusic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+@using Aestheticism_Music.Models;
+<h2>用户信息</h2>
+
+<form class="layui-form" action="/UserMusics/Index" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">账号：</label>
+        <div class="layui-input-block">
+            <input type="text" name="UserLoginName" placeholder="请输入账号" autocomplete="off" class="layui-input" value="@ViewBag.name">
+            <input type="submit" value="查询" class="layui-btn" />
+        </div>
+    </div>
+</form>
+
+
+    <table class="lay-even layui-table ">
+        <tr>
+            <th>
+                用户昵称
+            </th>
+            <th>
+                账号
+            </th>
+            <th>
+                用户密码
+            </th>
+            <th>
+                用户歌单
+            </th>
+            <th>
+                性别
+            </th>
+            <th>
+                用户电话
+            </th>
+            <th>
+                用户生日
+            </th>
+            <th>
+                用户邮箱
+            </th>
+            <th>操作</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserLoginName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserLoginPwd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserSongSheet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserSex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserBirthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserEmail)
+                </td>
+                <td>
+                    @Html.ActionLink("查看详情", "Details", new { id = item.UserID })
+                </td>
+            </tr>
+        }
+
+    </table>

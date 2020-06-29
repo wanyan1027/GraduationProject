@@ -1,0 +1,89 @@
+﻿@model Aestheticism_Music.Models.UserMusic
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserMusic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserLoginName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserLoginName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserLoginPwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserLoginPwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserSongSheet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserSongSheet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserBirthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserBirthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

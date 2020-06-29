@@ -1,0 +1,62 @@
+﻿@model Aestheticism_Music.Models.UserMusic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>查看详情</h2>
+
+<div>
+    <h4>用户 @Model.UserLoginName </h4>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>账号</th>
+            <th>@Html.DisplayFor(model => model.UserName)</th>
+        </tr>
+
+        <tr>
+            <th>用户昵称</th>
+            <th>@Html.DisplayFor(model => model.UserLoginName)</th>
+        </tr>
+
+        <tr>
+            <th>用户密码</th>
+            <th>@Html.DisplayFor(model => model.UserLoginPwd)</th>
+        </tr>
+
+        <tr>
+            <th>用户歌单</th>
+            <th>@Html.DisplayFor(model => model.UserSongSheet)</th>
+        </tr>
+
+        <tr>
+            <th>性别</th>
+            <th>@Html.DisplayFor(model => model.UserSex)</th>
+        </tr>
+
+        <tr>
+            <th>性别</th>
+            <th>@Html.DisplayFor(model => model.UserSex)</th>
+        </tr>
+
+        <tr>
+            <th>电话</th>
+            <th>@Html.DisplayFor(model => model.UserPhone)</th>
+        </tr>
+
+        <tr>
+            <th>生日</th>
+            <th>@Html.DisplayFor(model => model.UserBirthday)</th>
+        </tr>
+
+        <tr>
+            <th>邮箱</th>
+            <th>@Html.DisplayFor(model => model.UserEmail)</th>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("返回", "Index")
+</p>

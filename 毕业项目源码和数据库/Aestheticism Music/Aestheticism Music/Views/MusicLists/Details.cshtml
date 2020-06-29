@@ -1,0 +1,39 @@
+﻿@model Aestheticism_Music.Models.MusicList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>查看详情</h2>
+
+<div>
+    <h4>音乐列表</h4>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>歌曲名</th>
+            <th>@Html.DisplayFor(model => model.MusicListName)</th>
+        </tr>
+        <tr>
+            <th>歌曲大小</th>
+            <th>@Html.DisplayFor(model => model.MusicListFileSize)</th>
+        </tr>
+        <tr>
+            <th>歌曲地址</th>
+            <th>@Html.DisplayFor(model => model.MusicListPath)</th>
+        </tr>
+        <tr>
+            <th>歌手</th>
+            <th>@Html.DisplayFor(model => model.Singer.SingerName)</th>
+        </tr>
+        <tr>
+            <th>歌曲发布者</th>
+            <th>@Html.DisplayFor(model => model.UserMusic.UserName)</th>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { id = Model.MusicListID }) |
+    @Html.ActionLink("返回", "Index")
+</p>

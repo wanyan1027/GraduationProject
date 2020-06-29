@@ -1,0 +1,49 @@
+﻿@model Aestheticism_Music.Models.MusicList
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>删除</h2>
+
+<h3>你确定要删除这首歌嘛？</h3>
+<div>
+    <h4>MusicList</h4>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>歌曲名</th>
+            <th>@Html.DisplayFor(model => model.MusicListName)</th>
+        </tr>
+
+        <tr>
+            <th>歌曲大小</th>
+            <th> @Html.DisplayFor(model => model.MusicListFileSize)</th>
+        </tr>
+
+        <tr>
+            <th>歌曲大小</th>
+            <th>@Html.DisplayFor(model => model.MusicListPath)</th>
+        </tr>
+        <tr>
+            <th>歌手</th>
+            <th>@Html.DisplayFor(model => model.Singer.SingerName)</th>
+        </tr>
+
+        <tr>
+            <th>歌曲发布者</th>
+            <th>@Html.DisplayFor(model => model.UserMusic.UserName)</th>
+        </tr>
+
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="layui-form-item">
+            <input type="submit" value="删除" class="layui-btn layui-btn-danger" /> |
+            @Html.ActionLink("返回", "Index")
+        </div>
+    }
+</div>

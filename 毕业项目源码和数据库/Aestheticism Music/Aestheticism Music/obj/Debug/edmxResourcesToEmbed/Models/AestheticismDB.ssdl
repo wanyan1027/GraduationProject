@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AestheticismMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administer">
+    <Key>
+      <PropertyRef Name="AdministerID" />
+    </Key>
+    <Property Name="AdministerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdministerName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdministerLoginName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdministerLoginPwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdministerPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="AdministerEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Discuss">
+    <Key>
+      <PropertyRef Name="DiscussID" />
+    </Key>
+    <Property Name="DiscussID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiscussContent" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DiscussTime" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="MusicListID" Type="int" />
+  </EntityType>
+  <EntityType Name="MusicList">
+    <Key>
+      <PropertyRef Name="MusicListID" />
+    </Key>
+    <Property Name="MusicListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusicListName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MusicListFileSize" Type="nvarchar" MaxLength="200" />
+    <Property Name="MusicListPath" Type="nvarchar" MaxLength="50" />
+    <Property Name="SingerID" Type="int" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="MusicListType">
+    <Key>
+      <PropertyRef Name="MusicListTypeID" />
+    </Key>
+    <Property Name="MusicListTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SingerID" Type="int" />
+    <Property Name="MusicListID" Type="int" />
+    <Property Name="SingerType" Type="nvarchar" MaxLength="10" />
+    <Property Name="MusicListType" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Singer">
+    <Key>
+      <PropertyRef Name="SingerID" />
+    </Key>
+    <Property Name="SingerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SingerName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SingerSex" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="SingerPohoto" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserMusic">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserLoginName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserLoginPwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserSongSheet" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserSex" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserBirthday" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Discuss__MusicLi__20C1E124">
+    <End Role="MusicList" Type="Self.MusicList" Multiplicity="0..1" />
+    <End Role="Discuss" Type="Self.Discuss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MusicList">
+        <PropertyRef Name="MusicListID" />
+      </Principal>
+      <Dependent Role="Discuss">
+        <PropertyRef Name="MusicListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Discuss__UserID__1FCDBCEB">
+    <End Role="UserMusic" Type="Self.UserMusic" Multiplicity="0..1" />
+    <End Role="Discuss" Type="Self.Discuss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserMusic">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Discuss">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MusicList__Music__1CF15040">
+    <End Role="MusicList" Type="Self.MusicList" Multiplicity="0..1" />
+    <End Role="MusicListType" Type="Self.MusicListType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MusicList">
+        <PropertyRef Name="MusicListID" />
+      </Principal>
+      <Dependent Role="MusicListType">
+        <PropertyRef Name="MusicListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MusicList__Singe__182C9B23">
+    <End Role="Singer" Type="Self.Singer" Multiplicity="0..1" />
+    <End Role="MusicList" Type="Self.MusicList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Singer">
+        <PropertyRef Name="SingerID" />
+      </Principal>
+      <Dependent Role="MusicList">
+        <PropertyRef Name="SingerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MusicList__Singe__1BFD2C07">
+    <End Role="Singer" Type="Self.Singer" Multiplicity="0..1" />
+    <End Role="MusicListType" Type="Self.MusicListType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Singer">
+        <PropertyRef Name="SingerID" />
+      </Principal>
+      <Dependent Role="MusicListType">
+        <PropertyRef Name="SingerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MusicList__UserI__1920BF5C">
+    <End Role="UserMusic" Type="Self.UserMusic" Multiplicity="0..1" />
+    <End Role="MusicList" Type="Self.MusicList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserMusic">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MusicList">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AestheticismMSModelStoreContainer">
+    <EntitySet Name="Administer" EntityType="Self.Administer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discuss" EntityType="Self.Discuss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MusicList" EntityType="Self.MusicList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MusicListType" EntityType="Self.MusicListType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Singer" EntityType="Self.Singer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMusic" EntityType="Self.UserMusic" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Discuss__MusicLi__20C1E124" Association="Self.FK__Discuss__MusicLi__20C1E124">
+      <End Role="MusicList" EntitySet="MusicList" />
+      <End Role="Discuss" EntitySet="Discuss" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Discuss__UserID__1FCDBCEB" Association="Self.FK__Discuss__UserID__1FCDBCEB">
+      <End Role="UserMusic" EntitySet="UserMusic" />
+      <End Role="Discuss" EntitySet="Discuss" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MusicList__Music__1CF15040" Association="Self.FK__MusicList__Music__1CF15040">
+      <End Role="MusicList" EntitySet="MusicList" />
+      <End Role="MusicListType" EntitySet="MusicListType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MusicList__Singe__182C9B23" Association="Self.FK__MusicList__Singe__182C9B23">
+      <End Role="Singer" EntitySet="Singer" />
+      <End Role="MusicList" EntitySet="MusicList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MusicList__Singe__1BFD2C07" Association="Self.FK__MusicList__Singe__1BFD2C07">
+      <End Role="Singer" EntitySet="Singer" />
+      <End Role="MusicListType" EntitySet="MusicListType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MusicList__UserI__1920BF5C" Association="Self.FK__MusicList__UserI__1920BF5C">
+      <End Role="UserMusic" EntitySet="UserMusic" />
+      <End Role="MusicList" EntitySet="MusicList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
