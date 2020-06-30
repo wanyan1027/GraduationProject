@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Aestheticism_Music.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Aestheticism_Music.Controllers
 {
@@ -16,10 +18,24 @@ namespace Aestheticism_Music.Controllers
 
         // GET: UserMusics
 
-        public ActionResult Index()
+        public ActionResult Index(int? page=null)
         {
-            return View(db.UserMusic.ToList());
+            List<UserMusic> user = db.UserMusic.OrderByDescending(p => p.UserID).ToList();
+
+            //当前页码  
+            // ?? 空合并运算符，用于为可为空的值类型和引用类型定义默认值。
+            //如果不为空，则返回左侧操作数；否则返回右侧操作数。
+            int pageNum = page ?? 1;
+
+            //每页显示多少条
+            int pageSize = 3;
+
+            //通过ToPagedList扩展方法进行分页
+            //参数：当前页、每页显示的页数
+            IPagedList<UserMusic> userPagedList = user.ToPagedList(pageNum, pageSize);
+            return View(userPagedList);
         }
+
 
         [HttpPost]
         public ActionResult Index(string UserLoginName= "")

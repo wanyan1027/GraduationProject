@@ -1,6 +1,9 @@
 ﻿
 
 @using Aestheticism_Music.Models
+@{
+    Administer admin = Session["admin"] as Administer;
+}
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +27,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">
                         <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                        管理员
+                        <span style="color:white">@admin.AdministerName 管理员，欢迎您的到来！</span>
                     </a>
                 </li>
                 <li class="layui-nav-item"><a href="/Home/MangerLogin">退了</a></li>

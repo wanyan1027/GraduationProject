@@ -141,6 +141,8 @@ E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据�
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\Microsoft.Web.Infrastructure.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\Newtonsoft.Json.dll
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\PagedList.dll
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\PagedList.Mvc.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Helpers.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Mvc.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Optimization.dll
@@ -151,6 +153,8 @@ E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据�
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\WebGrease.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\EntityFramework.xml
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\EntityFramework.SqlServer.xml
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\PagedList.xml
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\PagedList.Mvc.xml
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Helpers.xml
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Mvc.xml
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\System.Web.Optimization.xml
@@ -162,6 +166,7 @@ E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据�
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\Antlr3.Runtime.pdb
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\zh-Hans\EntityFramework.resources.dll
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\zh-Hans\System.Web.Helpers.resources.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\zh-Hans\System.Web.Mvc.resources.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\bin\zh-Hans\System.Web.Optimization.resources.dll
@@ -172,4 +177,3 @@ E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据�
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.csproj.CopyComplete
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.pdb
-E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.csprojAssemblyReference.cache

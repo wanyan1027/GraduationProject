@@ -40,7 +40,7 @@ namespace Aestheticism_Music.Controllers
             //清空Session
             Session["user"] = null;
             //跳转到登录界面
-            return View("Login");
+            return View("Index");
         }
         /// <summary>
         /// 注销管理员
@@ -83,6 +83,7 @@ namespace Aestheticism_Music.Controllers
             var user = db.UserMusic.SingleOrDefault(p=>p.UserLoginName==UserLoginName&&p.UserLoginPwd==UserLoginPwd);
             if (user != null/* && (Session["validateCode"].ToString().ToLower() == Code)*/)
             {
+                Session["User"] = user;
                 return RedirectToAction("Index", "Music");
             }
             else
@@ -104,6 +105,7 @@ namespace Aestheticism_Music.Controllers
         public ActionResult MangerLogin(string AdministerLoginName,string AdministerLoginPwd)
         {
             var admin = db.Administer.SingleOrDefault(p => p.AdministerLoginName == AdministerLoginName && p.AdministerLoginPwd == AdministerLoginPwd);
+            Session["admin"] = admin;
             if (admin != null)
             {
                 return RedirectToAction("Index", "Administers");

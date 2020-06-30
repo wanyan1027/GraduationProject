@@ -54,6 +54,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -180,8 +186,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap1.min.css" />
@@ -227,22 +235,6 @@
     <Content Include="Content\img\6.jpg" />
     <Content Include="Content\img\7.jpg" />
     <Content Include="Content\img\AQAxRxS.png" />
-    <Content Include="Content\img\bg.jpg" />
-    <Content Include="Content\img\E09T8tf.png" />
-    <Content Include="Content\img\gradient-blue.png" />
-    <Content Include="Content\img\insertion-140x140-01.jpg" />
-    <Content Include="Content\img\insertion-140x140-02.jpg" />
-    <Content Include="Content\img\insertion-140x140-03.jpg" />
-    <Content Include="Content\img\insertion-140x140-04.jpg" />
-    <Content Include="Content\img\insertion-140x140-05.jpg" />
-    <Content Include="Content\img\insertion-1800x450.jpg" />
-    <Content Include="Content\img\insertion-260x390-01.jpg" />
-    <Content Include="Content\img\insertion-260x390-02.jpg" />
-    <Content Include="Content\img\insertion-260x390-03.jpg" />
-    <Content Include="Content\img\insertion-260x390-04.jpg" />
-    <Content Include="Content\img\insertion-560x336-01.jpg" />
-    <Content Include="Content\img\insertion-600x400.jpg" />
-    <Content Include="Content\img\insertion-header.jpg" />
     <Content Include="Content\img\lIhwduj.png" />
     <Content Include="Content\img\LIqj0nr.png" />
     <Content Include="Content\img\Mb6Nzj5.png" />
@@ -356,14 +348,15 @@
     <Content Include="Content\layui\lay\modules\tree.js" />
     <Content Include="Content\layui\lay\modules\upload.js" />
     <Content Include="Content\layui\lay\modules\util.js" />
+    <Content Include="Content\LoginCss\css\style.css" />
     <Content Include="Content\Music\与我无关.mp3" />
     <Content Include="Content\Music\感谢你曾来过.mp3" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\AestheticismDB.Context.tt">
@@ -410,6 +403,12 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jplayer.playlist.min.js" />
@@ -476,14 +475,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

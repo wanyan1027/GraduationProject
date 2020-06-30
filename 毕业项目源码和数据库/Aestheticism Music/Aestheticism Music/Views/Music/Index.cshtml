@@ -1,10 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 @using Aestheticism_Music.Models;
-@model List<MusicList>
+@model IEnumerable<Aestheticism_Music.Models.MusicList>
+@{
+    UserMusic user = Session["User"] as UserMusic;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +17,7 @@
     <meta name="keywords" content="" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
-
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
     <!--// bootstrap-css -->
     <!-- css -->
@@ -72,7 +74,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <div class="agileits-logo">
-                                <h1><a href="index.html"><img src="~/Content/images/logo1.png" /> Ae Music</a></h1>
+                                <h1><a href="index.html"><img src="~/Content/images/logo1.png" /> Ae 音乐网</a></h1>
                             </div>
                         </div>
 
@@ -80,12 +82,31 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav>
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="index.html">首页</a></li>
-                                    <li><a href="#about" class="scroll">关于我们</a></li>
-                                    <li><a href="#events" class="scroll">歌手分类</a></li>
-                                    <li><a href="#team" class="scroll">团队</a></li>
-                                    <li><a href="#news" class="scroll">歌曲</a></li>
-                                    <li><a href="#mail" class="scroll">联系我们</a></li>
+                                    @if (Session["User"] != null)
+                                    {
+                                        <li class="active"><a href="index.html">首页</a></li>
+                                        <li><a href="#about" class="scroll">歌曲</a></li>
+                                        <li><a href="#events" class="scroll">歌手分类</a></li>
+                                        <li><a href="#team" class="scroll">最新专辑</a></li>
+                                        <li><a href="#news" class="scroll">新闻</a></li>
+                                        <li><a href="#mail" class="scroll">联系我们</a></li>
+                                        <li><a href="/User/Index">个人资料</a></li>
+                                        <span style="color:white">欢迎：@user.UserName</span>
+                                        <form action="/Home/Exit">
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <li class="active"><a href="index.html">首页</a></li>
+                                        <li><a href="#about" class="scroll">歌曲</a></li>
+                                        <li><a href="#events" class="scroll">歌手分类</a></li>
+                                        <li><a href="#team" class="scroll">最新专辑</a></li>
+                                        <li><a href="#news" class="scroll">新闻</a></li>
+                                        <li><a href="#mail" class="scroll">联系我们</a></li>
+                                        <li><a href="/Home/Login" style="color:lightcoral;">我的音乐</a></li>
+                                    }
+
                                 </ul>
                             </nav>
                         </div>
@@ -125,73 +146,71 @@
     <div class="about" id="about">
         <div class="container">
             <div class="w3l-heading about-heading">
-                <h3>关于我们</h3>
+                <h3>歌曲列表</h3>
                 <div class="w3ls-border about-border"> </div>
             </div>
-            <div class="agileits-about-grids">
-                <div class="about-grids">
-                    <div class="col-md-6 about-grid">
-                        <div class="col-xs-3 about-grid-left">
-                            <span class="glyphicon glyphicon-asterisk effect-1" aria-hidden="true"></span>
-                        </div>
-                        <div class="col-xs-9 about-grid-right">
-                            <h4>Cum soluta nobis est</h4>
-                            <p>
-                                Itaque earum rerum hic tenetur a sapiente delectus
-                                reiciendis maiores alias consequatur aut
-                            </p>
-                        </div>
-                        <div class="clearfix"> </div>
+            <form class="layui-form" action="/Music/Index" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">歌曲：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="MusicListName" placeholder="请输入歌曲名" autocomplete="off" class="layui-input layui-bg-black" value="@ViewBag.name">
+                        <input type="submit" value="查询" class="layui-btn layui-btn-primary" />
                     </div>
-                    <div class="col-md-6 about-grid">
-                        <div class="col-xs-3 about-grid-left">
-                            <span class="glyphicon glyphicon-road effect-1" aria-hidden="true"></span>
-                        </div>
-                        <div class="col-xs-9 about-grid-right">
-                            <h4>Soluta nobis est cum</h4>
-                            <p>
-                                Itaque earum rerum hic tenetur a sapiente delectus
-                                reiciendis maiores alias consequatur aut
-                            </p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="clearfix"> </div>
                 </div>
-                <div class="about-grids1">
-                    <div class="col-md-6 about-grid">
-                        <div class="col-xs-3 about-grid-left">
-                            <span class="glyphicon glyphicon-plane effect-1" aria-hidden="true"></span>
-                        </div>
-                        <div class="col-xs-9 about-grid-right">
-                            <h4>Eligendi cum soluta nobis</h4>
-                            <p>
-                                Itaque earum rerum hic tenetur a sapiente delectus
-                                reiciendis maiores alias consequatur aut
-                            </p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="col-md-6 about-grid">
-                        <div class="col-xs-3 about-grid-left">
-                            <span class="glyphicon glyphicon-bed effect-1" aria-hidden="true"></span>
-                        </div>
-                        <div class="col-xs-9 about-grid-right">
-                            <h4>Nobis cum soluta est</h4>
-                            <p>
-                                Itaque earum rerum hic tenetur a sapiente delectus
-                                reiciendis maiores alias consequatur aut
-                            </p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
+            </form>
+                <table class="lay-even layui-table layui-bg-black">
+                    <tr>
+                        <th>
+                            歌曲名
+                        </th>
+                        <th>
+                            文件大小
+                        </th>
+                        <th>
+                            歌曲地址
+                        </th>
+                        <th>
+                            歌手
+                        </th>
+                        <th>
+                            歌曲发布者
+                        </th>
+                        <th>操作</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="#"><i class="glyphicon glyphicon-play"></i></a>
+                                @Html.DisplayFor(modelItem => item.MusicListName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MusicListFileSize)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MusicListPath)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Singer.SingerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserMusic.UserName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("添加", "Create")
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+
+
         </div>
     </div>
     <!-- //about -->
-    <!-- gallery -->
+    <!-- 歌手 -->
     <div class="gallery" id="events">
         <div class="container">
             <div class="w3l-heading">
@@ -207,7 +226,7 @@
                     <li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">外国歌手</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
-                    @* 全部歌手 *@
+                    @* 部分歌手 *@
                     <div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
                         <div class="w3_tab_img">
                             <div class="col-sm-3 w3_tab_img_left">
@@ -538,67 +557,60 @@
         </div>
     </div>
     <!-- //gallery -->
-    <!-- 团队 -->
+    <!-- 最新专辑 -->
     <div class="team jarallax" id="team">
         <div class="team-dot">
             <div class="container">
                 <div class="w3l-heading about-heading">
-                    <h3>团队</h3>
+                    <h3>最新专辑</h3>
                     <div class="w3ls-border about-border"> </div>
                 </div>
                 <div class="agileits-team-grids">
                     <div class="col-md-3 agileits-team-grid">
                         <div class="team-info">
-                            <img src="images/t1.jpg" alt="" />
+                            <img src="~/Content/images/t1.jpg" />
+
                             <div class="team-caption">
-                                <h4>Justo congue</h4>
-                                <p>Fusce laoreet</p>
+                                <h4>coffee-《咖啡》</h4>
+                                <p>鹿晗LuHan&吴亦凡Kris</p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 agileits-team-grid">
                         <div class="team-info">
-                            <img src="images/t2.jpg" alt="" />
+                            <img src="~/Content/images/t2.jpg" />
                             <div class="team-caption">
-                                <h4>Justo congue</h4>
-                                <p>Fusce laoreet</p>
+                                <h4>22</h4>
+                                <p>泰勒-斯威夫特</p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 agileits-team-grid">
                         <div class="team-info">
-                            <img src="images/t3.jpg" alt="" />
+                            <img src="~/Content/images/t3.jpg" />
                             <div class="team-caption">
-                                <h4>Justo congue</h4>
-                                <p>Fusce laoreet</p>
+                                <h4>The Saltwater Room</h4>
+                                <p>Owl City</p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 agileits-team-grid">
                         <div class="team-info">
-                            <img src="images/t4.jpg" alt="" />
+                            <img src="~/Content/images/t4.jpg" />
                             <div class="team-caption">
-                                <h4>Justo congue</h4>
-                                <p>Fusce laoreet</p>
+                                <h4>大鱼</h4>
+                                <p>周深</p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -609,11 +621,11 @@
         </div>
     </div>
     <!-- //team -->
-    <!-- 歌曲列表 -->
+    <!-- 新闻 -->
     <div class="news" id="news">
         <div class="container">
             <div class="w3l-heading">
-                <h3>歌曲列表</h3>
+                <h3>新闻</h3>
                 <div class="w3ls-border"> </div>
             </div>
             <div class="wthree-news-grids">
@@ -622,65 +634,97 @@
                     <div id="cycler">
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>03 <span>Jan 2017</span></h4>
+                                <h4>29 <span>June 2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Lorem ipsum dolor sit amet</a>
-                                <p>Morbi felis sapien, pulvinar quis pharetra rutrum, auctor sit amet ipsum. Aliquam dictum massa ut porttitor ultricies. Duis non enim eros. Aliquam sed porttitor lectus.</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal">疫情动态-31省份新增19例确诊 8例为本土病例<span class="blinking"><img src="~/Content/images/new.png" /></span></a>
+                                <p>
+                                    6月29日0—24时，31个省（自治区、直辖市）和新疆生产建设兵团报告新增确诊病例19例，其中境外输入病例11例（广东4例，上海3例，四川3例，甘肃1例），本土病例8例（北京7例，上海1例）；无新增死亡病例；新增疑似病例1例，为境外输入病例（在上海）。
+                                    当日新增治愈出院病例9例，解除医学观察的密切接触者458人，重症病例比前一日减少1例。
+                                    ----《信息来自国家卫生健康委员会官方网站》
+                                </p>
+
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>08 <span>Sept 2017</span></h4>
+                                <h4>30 <span>June 2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Cras vestibulum dapibus <span class="blinking"><img src="images/new.png" alt="" /></span></a>
-                                <p>Curabitur egestas porttitor erat quis cursus. Aliquam nec sapien urna. Curabitur tincidunt dolor sed metus maximus dapibus. Integer ligula enim, condimentum id commodo eget</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal"> 高考前6天，做点简单基础的事，不要再疯狂刷题了 <span class="blinking"><img src="~/Content/images/new.png" /></span></a>
+                                <p>
+                                    一、有规划的做题:一定要避免机械的盲目的去刷题。
+                                    二、调整作息规律，保证拥有充足的精力:我们都知道高考的时间都是定下来的，不管是哪一天，哪一个时段考哪一个科目，都是有一个时间分配的，而在高考前六天，我们应该尽量的去调整自己的作息时间，以保证在高考的时候能够有充足的精力。
+                                    三、保持平稳的心态:在高考前六天，学生应该尽量的将自己的心态放平稳，虽然整个高考都是考的真才实学，但其中心理状态却是会左右高考成绩的。
+                                    而在考前的六天里，学生更应该保持的是一种理性兴奋，对于高考有所期待，而又有着完整的规划。
+                                </p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>17 <span>July 2017</span></h4>
+                                <h4>26 <span>June 2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Fusce id molestie mauris</a>
-                                <p>Cras blandit felis augue, nec faucibus lectus hendrerit vitae. Vestibulum rutrum, magna id pellentesque fermentum, est risus scelerisque leo, at consequat nunc sem non tortor.</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal"> 百度2020年高考搜索大数据：人生大考遇上疫情大考，这届考生“压力山大”<span class="blinking"><img src="~/Content/images/new.png" /></span></a>
+                                <p>
+                                    疫情影响了高考，也影响了考生的人生选择。生活在新时代的这届考生，对于大学专业的关注也“颠覆”传统。充满“未知”的2020年高考，政策也在变，考生和家长都非常关心首年施行的“强基计划”。
+                                    在这个“特殊”的高考季，面临着高考和疫情的双重考验，这届考生备考压力更大。搜索数据显示，今年“备考压力”相关内容搜索热度较去年同期(高考倒计时100天至倒计时10天)上涨133%，“高考励志标语”相关内容的搜索热度同比去年(高考倒计时100天至倒计时10天)上涨267%。可见，压力之下，考生依然积极应对，寻求心理疏导。
+                                    面对高考这一人生的重大抉择点，考生和家长都希望快速、准确、全面地获取相关信息。而每年高考期间，都会有百亿人次通过百度搜索、浏览高考相关信息;超过95%的高三学生及家长都会使用百度查找相关信息及服务，百度将持续助力高三考生和家长打赢这场“信息战”。
+
+                                </p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>15 <span>Aug 2017</span></h4>
+                                <h4>29 <span>June 2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Aliquam vulputate arcu enim <span class="blinking"><img src="images/new.png" alt="" /></span></a>
-                                <p>Aliquam sed porttitor lectus. Donec sagittis magna non eros convallis, dapibus iaculis nunc tincidunt. Pellentesque quam nisi, cursus non vestibulum ac, vehicula eu tortor.</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal">将二次元唱出圈层的周深，为何选《龙之谷2》为首款代言游戏 <span class="blinking"><img src="~/Content/images/new.png" /></span></a>
+                                <p>
+                                    端午节期间，ACG圈举办了两个大型活动，一个是B站的十一周年庆，一个是腾讯游戏的年度发布会。本该是两场圈子里的狂欢，却出现了同一个“圈外人”，歌手周深。
+                                    由于此前在《歌手·当打之年》唱火了洛天依神曲《达拉崩吧》，周深以本职身份出席B站十一周年，并不算意外。相比之下，以《龙之谷2》代言人的身份亮相腾讯游戏
+                                    年度发布会，则多少有些彩蛋的意味。要知道，这是周深首次代言游戏，也是其公开代言的第三个品牌。较之前两个护肤产品，代言游戏似乎更具突破意义。事实上，如
+                                    果你回顾周深6年来的成名历程就不难发现，周深十分擅长在外界没有想到的领域里进行尝试，并且都能取得很不错的效果。作为一位自带二次元属性的90后，周深自身就
+                                    与《龙之谷》的核心玩家群体相契合。加之他的粉丝受众都相对年轻，据百度指数显示，主动搜索周深的人大多在20-29岁，女性高于男性，有机会为《龙之谷》注入又一
+                                    批新鲜血液。更重要的是，如果周深为《龙之谷》演唱主题曲，凭借其唱功与市场口碑，《龙之谷》也有可能像洛天依的《达拉崩吧》一样实现出圈。另一方面，作为周深
+                                    的首款代言游戏，《龙之谷2》的圈内知名度与体量，也为周深进一步释放宝藏男孩潜力提供了一定的空间。仅从突破性与匹配度做考量，周深这次又选对了作品。此次突破
+                                    又将带来何种程度的惊艳，就要等游戏的表现了。
+                                </p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>24 <span>Sept 2017</span></h4>
+                                <h4>27 <span>April  2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Donec ac turpis aliquet</a>
-                                <p>Curabitur facilisis fermentum gravida. Nunc suscipit nec enim ut suscipit. Mauris mollis lectus at mi vehicula rutrum vel non dolor. Nulla ut purus arcu. Pellentesque sed finibus</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal">《等风停》MV正式上线，“仙气艺人”罗云熙演绎温柔一面</a>
+                                <p>
+                                    这次《等风停》的上线，则足以让人们见识到罗云熙对音乐认真的态度。这首歌由好妹妹乐队成员秦昊亲自操刀制作，无论是曲风还是歌词均充满着浓浓的治愈气息，而在MV中，罗云熙身着宽松衬衫，漫步在森林之中，与温柔婉转的歌声相迎合，意境满满。
+                                    “等风来的时候，你就要随风远扬，愿我的歌化作你的翅膀，陪着你到远方”，从歌词中我们不难发现，这首歌始终围绕着“祝福”二字进行展开，而配合着罗云熙在MV中的神情和动作，再结合当下毕业季的离别氛围，这首歌会让更多面临分离的人，找到
+                                    暖情而又温馨的陪伴。从去年的预热单曲《逆流而上》，到如今《等风停》的接力，罗云熙始终用自己最认真的态度对待自己的每一部作品，而不同风格的体验，则令罗云熙在音乐领域的多样性展现得淋漓尽致，《等风停》这首单曲带来的温暖的祝福，正
+                                    是罗云熙想要为歌迷所带来的真实体验，相信在不久的将来，罗云熙一定能为我们带来更多精彩的作品，让我们一起期待吧！
+                                </p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="wthree-news-grid">
                             <div class="wthree-news-left">
-                                <h4>24 <span>Oct 2017</span></h4>
+                                <h4>22 <span>June  2020</span></h4>
                             </div>
                             <div class="date-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"> Morbi nec justo ut ex rhoncus luctus</a>
-                                <p>Nullam accumsan imperdiet elementum. Quisque volutpat sapien sed ipsum condimentum elementum. Suspendisse potenti. Maecenas fermentum justo sit amet interdum viverra.</p>
+                                <a href="#" data-toggle="modal" data-target="#myModal"> 2021年全英音乐奖因疫情推迟 将于五月举办<span class="blinking"><img src="~/Content/images/new.png" /></span></a>
+                                <p>
+                                    近日，据外媒报道，由于疫情原因，2021年的全英音乐奖从传统的2月推迟到了5月。英国音乐机构——英国唱片业（BPI）的组织者在咨询了英国顶级音乐人物、赞助商和ITV电视网之后，于周一宣布了这一计划，全英音乐奖将于5月11日启动。BPI负责人表示，由于“安全和后勤方面的考虑”，在2月份举行大型颁奖礼将会非常困难，如果在2月份举行，全球明星可能无法参加。
+                                </p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
+
                     <script>
                         function blinker() {
                             $('.blinking').fadeOut(500);
@@ -710,14 +754,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">歌曲介绍</h4>
-                    <h5>均来自于21世纪</h5>
+                    <h4 class="modal-title">音乐介绍</h4>
+                    <h5>每一首歌都有它存在的意义</h5>
                 </div>
                 <div class="modal-body">
                     <div class="agileits-w3layouts-info">
                         <img src="images/1.jpg" alt="" />
                         <p>
-                            《修炼爱情》林俊杰第十张个人专辑《因你而在Stories Untold》第二波主打歌《修炼爱情》MV，该MV以动漫的形式呈现，而讲述的则是心中最沉痛的一段回忆。这支MV是献给在MI185空难中的遇难者，更是献给在此次事故中遇难的自己最亲爱的朋友。据林俊杰回忆，16岁时，有位印尼华侨女生向他告白，主动会送早餐到他家，但林俊杰没有“触电”的感觉，婉拒她的好意。虽没成为情侣却变成好朋友，她还牵红线让林俊杰认识了当时的初恋情人,但两个人交往了几个月，草草收场。然而在1997年，这位女友人搭上了死亡航班，飞机在空中粉碎性解体，机组人员和乘客无一生还。“我在隔天看报纸，在遇难名单上看到她的名字，从遗物照片中清楚的看到了自己的照片......”突然的事故让林俊杰难以接受，一直将这段回忆存封不向谁提起，“当时还太小，不懂该怎么去表达那种情感，也不敢去面对这件事。”她和双亲在那件事件中遇难，不久认领那位女生遗物的阿姨把当中的照片主动还给了林俊杰。林俊杰说“照片是她的遗物，但阿姨觉得应该还我，虽然和她说清楚了，在和她的朋友交往，但知道她还是会随身带着我的照片，心里就是不好过。”2013年正值林俊杰出道10年，唱片公司在企划其新专辑时希望他能讲出不曾说过的内心秘密，林俊杰才决定自揭伤疤，坦言当年事情来得太突然，有太多话来不及说，他一直还保存对方留下的那张照片，“那起空难始终没查出原因，去年有电视播出，我还是忍不住看完了，仍对当年的意外难以释怀。”他还保留着照片，至今还会睹物思人，“照片还留有汽油味，但留住，是为了留个纪念。
+                            在所有的艺术形式中，音乐是最擅长于抒发情感、最能拨动人心弦的艺术形式，它借助声音这个媒介来真实地传达、表现和感受审美情感。音乐在传达和表现情感上，优于其他艺术形式，
+                            是因为它所采用的感性材料和审美形式——声音最合于情感的本性，最适宜表达情感。或庄严肃穆，或热烈兴奋，或悲痛激愤，或缠绵细腻，或如泣如诉。音乐可以更直接、更真实、更
+                            深刻地表达人的情感。那么，音乐为什么能够用有组织的声音来表达人的情感呢，一种理论认为，音乐的表情性来自于音乐对人的有表情性因素的语言的模仿。人的语言用语音、声调、
+                            语流、节奏、语速等表情手段配合语义来表情达意，而音乐的音色、音调起伏、节奏速度等表现手段能起到与语言的表情手段同样的作用。 个人认为，音乐的声音形态与人类情感之间
+                            存在着相似性，具有某种“同构关系”，这是音乐能表达人情感的根本原因。音乐理论家于润洋曾指出：“音响结构之所以能够表达特定的情感，其根本原因在于这二者之间存在着一个
+                            极其重要的相似点，那就是这二者都是在时间中展示和发展，在速度、力度、色调上具有丰富变化的、极富于动力性的过程。这个极其重要的相似点正是这二者之间能够沟通的桥梁。”
+                            比如“喜悦”，它是人高兴、欢乐的感情表现。一般来说，这种感情运动呈现出一种跳跃、向上的运动形态，其色调比较明朗，运动速度与频率较快。表现“喜悦”的感情的音乐，一般
+                            也采取类似的动态结构，如民乐曲《喜洋洋》，用较快的速度、跳荡的音调等表现手段表达了人们喜悦的情感。
                         </p>
                     </div>
                 </div>
@@ -773,25 +824,26 @@
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </div>
                     <div class="address-info">
-                        <p><a href="mailto:example@email.com">mail@example.com</a></p>
+                        <p><a href="mailto:example@email.com">Email@example.com</a></p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
             </div>
         </div>
         <div class="col-md-8 contact-form-right">
-            <h5>空白页</h5>
+            <h5>补充说明</h5>
             <div class="contact-form-grid">
-                <form action="#" method="post">
+
+                @*<form action="#" method="post">
                     <div class="fields-grid">
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" name="Full Name" required="">
-                            <label>Full Name</label>
+                            <label>你的名字</label>
                             <span></span>
                         </div>
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" name="Phone" required="">
-                            <label>Phone</label>
+                            <label>要上传的文件</label>
                             <span></span>
                         </div>
                         <div class="styled-input">
@@ -811,8 +863,8 @@
                         <label>Message</label>
                         <span></span>
                     </div>
-                    <input type="submit" value="SEND">
-                </form>
+                    <input type="submit" value="添加">
+                </form>*@
             </div>
         </div>
         <div class="clearfix"> </div>
