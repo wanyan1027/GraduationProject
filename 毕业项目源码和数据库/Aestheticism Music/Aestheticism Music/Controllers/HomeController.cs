@@ -84,7 +84,7 @@ namespace Aestheticism_Music.Controllers
             if (user != null/* && (Session["validateCode"].ToString().ToLower() == Code)*/)
             {
                 Session["User"] = user;
-                return RedirectToAction("Index", "Music");
+                return Content("<script>window.location.href='/Music/Index/" + user.UserID + "'</script>");
             }
             else
             {

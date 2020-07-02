@@ -6,6 +6,7 @@
 @model IEnumerable<Aestheticism_Music.Models.MusicList>
 @{
     UserMusic user = Session["User"] as UserMusic;
+    UserMusic users = ViewBag.user;
 }
 
 <!DOCTYPE html>
@@ -90,7 +91,7 @@
                                         <li><a href="#team" class="scroll">最新专辑</a></li>
                                         <li><a href="#news" class="scroll">新闻</a></li>
                                         <li><a href="#mail" class="scroll">联系我们</a></li>
-                                        <li><a href="/User/Index">个人资料</a></li>
+                                        <li><a href="/Music/Edit/@user.UserID" data-toggle="modal" data-target="#exampleModal" data-whatever="@user.UserID">个人资料</a></li>
                                         <span style="color:white">欢迎：@user.UserName</span>
                                         <form action="/Home/Exit">
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
@@ -142,7 +143,7 @@
         </div>
     </div>
     <!-- //介绍 -->
-    <!-- 关于我们 -->
+    <!-- 歌曲列表 -->
     <div class="about" id="about">
         <div class="container">
             <div class="w3l-heading about-heading">
@@ -158,52 +159,52 @@
                     </div>
                 </div>
             </form>
-                <table class="lay-even layui-table layui-bg-black">
+            <table class="lay-even layui-table layui-bg-black">
+                <tr>
+                    <th>
+                        歌曲名
+                    </th>
+                    <th>
+                        文件大小
+                    </th>
+                    <th>
+                        歌曲地址
+                    </th>
+                    <th>
+                        歌手
+                    </th>
+                    <th>
+                        歌曲发布者
+                    </th>
+                    <th>操作</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
                     <tr>
-                        <th>
-                            歌曲名
-                        </th>
-                        <th>
-                            文件大小
-                        </th>
-                        <th>
-                            歌曲地址
-                        </th>
-                        <th>
-                            歌手
-                        </th>
-                        <th>
-                            歌曲发布者
-                        </th>
-                        <th>操作</th>
+                        <td>
+                            <a href="#"><i class="glyphicon glyphicon-play"></i></a>
+                            @Html.DisplayFor(modelItem => item.MusicListName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MusicListFileSize)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MusicListPath)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Singer.SingerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserMusic.UserName)
+                        </td>
+                        <td>
+                            <a href="#mail" class="scroll">添加</a>
+                        </td>
                     </tr>
+                }
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <a href="#"><i class="glyphicon glyphicon-play"></i></a>
-                                @Html.DisplayFor(modelItem => item.MusicListName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.MusicListFileSize)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.MusicListPath)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Singer.SingerName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UserMusic.UserName)
-                            </td>
-                            <td>
-                                @Html.ActionLink("添加", "Create")
-                            </td>
-                        </tr>
-                    }
-
-                </table>
+            </table>
 
 
 
@@ -777,6 +778,7 @@
     </div>
     <!-- //modal -->
     <!-- contact -->
+    @* 每一首歌都有每一首歌曲存在的意义 *@
     <div class="contact" id="mail">
         <div class="container">
             <div class="w3l-heading about-heading">
@@ -790,6 +792,7 @@
             </div>
         </div>
     </div>
+    @* 联系我们 *@
     <div class="contact-form">
         <div class="col-md-4 contact-form-left">
             <h5>联系我们</h5>
@@ -830,45 +833,115 @@
                 </div>
             </div>
         </div>
+        @* 添加歌曲 *@
         <div class="col-md-8 contact-form-right">
-            <h5>补充说明</h5>
+            <h5>添加歌曲</h5>
             <div class="contact-form-grid">
-
-                @*<form action="#" method="post">
+                <form action="/Music/Create" method="post">
                     <div class="fields-grid">
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" name="Full Name" required="">
-                            <label>你的名字</label>
+                            <input type="text" name="MusicListID" id="MusicListID" required="" class="hidden">
+                            <label></label>
                             <span></span>
                         </div>
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" name="Phone" required="">
-                            <label>要上传的文件</label>
+                            <input type="text" name="MusicListName" id="MusicListName" required="">
+                            <label>上传的歌曲名</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input agile-styled-input-top">
+                            <input type="text" name="MusicListFileSize" id="MusicListFileSize" required="">
+                            <label>要上传的文件的大小</label>
                             <span></span>
                         </div>
                         <div class="styled-input">
-                            <input type="email" name="Email" required="">
-                            <label>Email</label>
+                            <input type="file" name="MusicListPath" id="MusicListPath" required="">
+                            <label></label>
                             <span></span>
                         </div>
                         <div class="styled-input">
-                            <input type="text" name="Subject" required="">
-                            <label>Subject</label>
+                            <input type="text" name="SingerID" id="SingerID" required="">
+                            <label>歌手</label>
                             <span></span>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="styled-input textarea-grid">
-                        <textarea name="Message" required=""></textarea>
-                        <label>Message</label>
-                        <span></span>
-                    </div>
-                    <input type="submit" value="添加">
-                </form>*@
+                        <div class="styled-input textarea-grid">
+                            <input type="text" name="UserID" id="UserID" required="">
+                            <label>发布者</label>
+                            <span></span>
+                        </div>
+                        <input type="submit" value="添加" class="btn-primary">
+                    </form>
             </div>
         </div>
         <div class="clearfix"> </div>
     </div>
+
+
+    @* 个人资料的模态框 *@
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">个人资料</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="/Music/Edit" id="UserFrom">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <input type="hidden" id="UserID" name="UserID" value="@users.UserID" />
+                        </div>
+                        <div class="form-group">
+                            <label>用户名：</label>
+                            <input id="UserName" type="text" name="UserName" placeholder="用户名" @*value="@users.UserName"*@ class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>登录名：</label>
+                            <input id="UserLoginName" type="text" name="UserLoginName" placeholder="登录名" class="form-control" @*value="@users.UserLoginName"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>密码：</label>
+                            <input id="UserLoginPwd" type="text" name="UserLoginPwd" placeholder="密码" class="form-control" @*value="@users.UserLoginPwd"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>歌单：</label>
+                            <input id="UserSongSheet" type="text" name="UserSongSheet" placeholder="歌单" class="form-control" @*value="@users.UserSongSheet"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>性别：</label>
+                            <input id="UserSex" type="text" name="UserSex" placeholder="性别" class="form-control" @*value="@users.UserSex"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>电话：</label>
+                            <input id="UserPhone" type="text" name="UserPhone" placeholder="电话" class="form-control" @*value="@users.UserPhone"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>生日：</label>
+                            <input id="UserBirthday" type="text" name="UserBirthday" placeholder="生日" class="form-control" @*value="@users.UserBirthday"*@ />
+                        </div>
+                        <div class="form-group">
+                            <label>邮箱：</label>
+                            <input id="UserEmail" type="text" name="UserEmail" placeholder="邮箱" class="form-control" @*value="@users.UserEmail"*@ />
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary" id="EditSbm">保存</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+
     <!-- //contact -->
     <!-- footer -->
     <footer>
@@ -905,6 +978,46 @@
             $().UItoTop({ easingType: 'easeOutQuart' });
 
         });
+
+        /* 个人资料的模态框   修改*/
+        $('#exampleModal').on('show.bs.modal', function (event) {  //监控模式框的状态为显示时触发，event捕获的是触发模式框显示的单击事件对象
+            var button = $(event.relatedTarget);  //捕获单机对象
+            var id = button.data('whatever');   //获得单机对象标签上传递的参
+            //获取监控的模态框
+            var modal = $(this);
+            //获取到对应对象数据，展示在对应input上
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/Music/Detail',
+                async: false,
+                data: {
+                    //传递teacherid
+                    id: id
+                },
+                success(data) {
+                    console.log(data);
+
+                    //find()方法，用于找出第一个符合条件的数组成
+                    //给对应的input赋值（接收到data传递的值，使用键值对方式key获取值）
+                    modal.find('.modal-body input[name="UserID"]').val(data["UserID"]);
+                    modal.find('.modal-body input[name="UserName"]').val(data["UserName"]);
+                    modal.find('.modal-body input[name="UserLoginName"]').val(data["UserLoginName"]);
+                    modal.find('.modal-body input[name="UserLoginPwd"]').val(data["UserLoginPwd"]);
+                    modal.find('.modal-body input[name="UserSongSheet"]').val(data["UserSongSheet"]);
+                    modal.find('.modal-body input[name="UserSex"]').val(data["UserSex"]);
+                    modal.find('.modal-body input[name="UserPhone"]').val(data["UserPhone"]);
+                    modal.find('.modal-body input[name="UserBirthday"]').val(data["UserBirthday"]);
+                    modal.find('.modal-body input[name="UserEmail"]').val(data["UserEmail"]);
+                }
+            })
+        })
+
+            /*个人资料模态框触发提交按钮*/
+        $("#EditSbm").click(function () {
+            $("#UserFrom").submit();
+        })
+
     </script>
     <!-- //here ends scrolling icon -->
 </body>

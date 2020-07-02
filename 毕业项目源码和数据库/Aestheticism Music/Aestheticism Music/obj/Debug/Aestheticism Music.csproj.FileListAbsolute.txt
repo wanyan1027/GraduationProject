@@ -177,3 +177,4 @@ E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据�
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.csproj.CopyComplete
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.dll
 E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.pdb
+E:\上课的练习\大三毕业设计\毕业项目\毕业项目源码和数据库\Aestheticism Music\Aestheticism Music\obj\Debug\Aestheticism Music.csprojAssemblyReference.cache
