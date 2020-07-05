@@ -57,7 +57,7 @@
     <Property Name="SingerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="SingerName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SingerSex" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SingerPohoto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SingerPohoto" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MusicList" Relationship="Self.FK__MusicList__Singe__182C9B23" FromRole="Singer" ToRole="MusicList" />
     <NavigationProperty Name="MusicListType" Relationship="Self.FK__MusicList__Singe__1BFD2C07" FromRole="Singer" ToRole="MusicListType" />
   </EntityType>

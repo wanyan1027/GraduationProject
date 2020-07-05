@@ -1,0 +1,41 @@
+﻿@model Aestheticism_Music.Models.Singer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>删除</h2>
+
+<h3>你确定要删除这个歌手吗?</h3>
+<div>
+    <h4>歌手 @Model.SingerName</h4>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>歌手</th>
+            <th>@Html.DisplayFor(model => model.SingerName)</th>
+        </tr>
+
+        <tr>
+            <th>性别</th>
+            <th>@Html.DisplayFor(model => model.SingerSex)</th>
+        </tr>
+
+        <tr>
+            <th>图片</th>
+            <th>@Html.DisplayFor(model => model.SingerPohoto)</th>
+        </tr>
+
+    </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="删除" class="layui-btn layui-btn-danger" /> |
+                @Html.ActionLink("返回", "Index")
+            </div>
+        }
+</div>

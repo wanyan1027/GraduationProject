@@ -18,10 +18,9 @@ namespace Aestheticism_Music.Controllers
 
         // GET: UserMusics
 
-        public ActionResult Index(int? page=null)
+        public ActionResult Index(int? page=null, string UserName = "")
         {
-            List<UserMusic> user = db.UserMusic.OrderByDescending(p => p.UserID).ToList();
-
+            List<UserMusic> user = db.UserMusic.Where(p => UserName == "" || p.UserName.Contains(UserName)).OrderByDescending(p => p.UserID).ToList();
             //当前页码  
             // ?? 空合并运算符，用于为可为空的值类型和引用类型定义默认值。
             //如果不为空，则返回左侧操作数；否则返回右侧操作数。
@@ -37,14 +36,14 @@ namespace Aestheticism_Music.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult Index(string UserLoginName= "")
-        {
+        //[HttpPost]
+        //public ActionResult Index(string UserLoginName= "")
+        //{
            
-               List<UserMusic> list = db.UserMusic.Where(p => UserLoginName == "" || p.UserLoginName.Contains(UserLoginName)).ToList();
-                ViewBag.name = UserLoginName;
-                return View(list);
-        }
+        //       List<UserMusic> list = db.UserMusic.Where(p => UserLoginName == "" || p.UserLoginName.Contains(UserLoginName)).ToList();
+        //        ViewBag.name = UserLoginName;
+        //        return View(list);
+        //}
 
         // GET: UserMusics/Details/5
         public ActionResult Details(int? id)

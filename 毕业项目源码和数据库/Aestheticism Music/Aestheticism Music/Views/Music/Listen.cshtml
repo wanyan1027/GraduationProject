@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+@using Aestheticism_Music.Models;
+@{ 
+    MusicList list = ViewBag.list;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>该页面正在播放- @list.MusicListName</title>
+
+    <link href="~/Content/Music/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <audio controls autoplay>
+            <source src="~/Content/Music/%e4%b8%8e%e6%88%91%e6%97%a0%e5%85%b3.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div id="background" class="wall"></div>
+    <div id="midground" class="wall"></div>
+    <div id="foreground" class="wall"></div>
+    <div id="top" class="wall"></div>
+</body>
+</html>

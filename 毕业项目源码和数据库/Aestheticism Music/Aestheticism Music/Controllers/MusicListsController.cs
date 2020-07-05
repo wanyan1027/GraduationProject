@@ -16,10 +16,10 @@ namespace Aestheticism_Music.Controllers
         private AestheticismMSEntities db = new AestheticismMSEntities();
 
         // GET: MusicLists
-        public ActionResult Index(int?page=null)
+        public ActionResult Index(int?page=null, string MusicListName = "")
         {
 
-            List<MusicList> music = db.MusicList.OrderByDescending(p => p.MusicListID).ToList();
+            List<MusicList> music = db.MusicList.Where(p => MusicListName == "" || p.MusicListName.Contains(MusicListName)).OrderByDescending(p => p.MusicListID).ToList();
 
             //当前页码  
             // ?? 空合并运算符，用于为可为空的值类型和引用类型定义默认值。
@@ -35,13 +35,13 @@ namespace Aestheticism_Music.Controllers
             return View(musicPagedList);
         }
 
-        [HttpPost]
-        public ActionResult Index(string MusicListName="")
-        {
-            List<MusicList> list = db.MusicList.Where(p => MusicListName == "" || p.MusicListName.Contains(MusicListName)).ToList();
-            ViewBag.name = MusicListName;
-            return View(list);
-        }
+        //[HttpPost]
+        //public ActionResult Index(string MusicListName="")
+        //{
+        //    List<MusicList> list = db.MusicList.Where(p => MusicListName == "" || p.MusicListName.Contains(MusicListName)).ToList();
+        //    ViewBag.name = MusicListName;
+        //    return View(list);
+        //}
 
         // GET: MusicLists/Details/5
         public ActionResult Details(int? id)

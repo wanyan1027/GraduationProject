@@ -1,0 +1,36 @@
+﻿@model Aestheticism_Music.Models.Singer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>查看详情</h2>
+
+<div>
+    <h4>歌手</h4>
+    <hr />
+    <table class="lay-even layui-table">
+        <tr>
+            <th>歌手</th>
+            <th>@Html.DisplayFor(model => model.SingerName)</th>
+        </tr>
+        <tr>
+            <th>性别</th>
+            <th>
+                @Html.DisplayFor(model => model.SingerSex)
+            </th>
+        </tr>
+        <tr>
+            <th>图片</th>
+            <th>
+                @Html.DisplayFor(model => model.SingerPohoto)
+            </th>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { id = Model.SingerID }) |
+    @Html.ActionLink("返回", "Index")
+</p>

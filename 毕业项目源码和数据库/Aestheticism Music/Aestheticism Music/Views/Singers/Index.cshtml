@@ -1,0 +1,75 @@
+﻿@*@model IEnumerable<Aestheticism_Music.Models.Singer>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+
+@using Aestheticism_Music.Models;
+
+@using PagedList;
+
+@using PagedList.Mvc;
+
+@model IPagedList<Singer>
+
+<h2>歌手列表</h2>
+
+
+<p>
+    @Html.ActionLink("添加歌手", "Create")
+</p>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<form class="layui-form" action="/Singers/Index" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">歌手：</label>
+        <div class="layui-input-block">
+            <input type="text" name="SingerName" placeholder="请输入歌手名字" autocomplete="off" class="layui-input">
+            <input type="submit" value="查询" class="layui-btn" />
+        </div>
+    </div>
+</form>
+
+<table class="lay-even layui-table">
+    <tr>
+        <th>
+            歌手
+        </th>
+        <th>
+            性别
+        </th>
+        <th>
+            图片
+        </th>
+        <th>操作</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SingerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SingerSex)
+            </td>
+            <td>
+                <img src="~/Content/img/@item.SingerPohoto" name="SingerPohoto" id="SingerPohoto"/>
+            </td>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = item.SingerID }) |
+                @Html.ActionLink("详情", "Details", new { id = item.SingerID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.SingerID })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+
+    每页 @Model.PageSize 记录，总有 @Model.PageCount 页，当前 @Model.PageNumber 页
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

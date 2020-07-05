@@ -40,7 +40,7 @@ namespace Aestheticism_Music.Controllers
             //清空Session
             Session["user"] = null;
             //跳转到登录界面
-            return View("Index");
+            return View("Login");
         }
         /// <summary>
         /// 注销管理员
@@ -65,7 +65,8 @@ namespace Aestheticism_Music.Controllers
             db.Configuration.ValidateOnSaveEnabled = false;
             int count = db.SaveChanges();
             db.Configuration.ValidateOnSaveEnabled = true;
-            return RedirectToAction("Login", "Home");
+            //return RedirectToAction("Login", "Home");
+            return Content("<script>alert('注册成功！！');history.go(-1)</script>");
         }
 
         /// <summary>

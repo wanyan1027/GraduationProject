@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Aestheticism_Music.Models;
+@*@model List<MusicListType>*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>添加-歌曲</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="form-group form-control-sm">
+        <form action="/Music/Create" method="post">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="hidden" name="MusicListID" id="MusicListID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">歌曲名：</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="MusicListName" name="MusicListName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">文件大小：</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control text-box single-line" name="MusicListFileSize" id="MusicListFileSize" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1"></label>
+                    <input type="file" class="form-control-file" id="MusicListPath" name="MusicListPath">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">歌手名字：</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control text-box single-line" name="SingerName" id="SingerName" />
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    <label class="control-label col-md-2">歌曲类型：</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="MusicListID" id="MusicListID">
+                            <option value="0">---请选择歌曲类型---</option>
+                            @foreach (var item in Model)
+                            {
+                                //thymeleaf 之 th:each迭代循环对象集合到select下拉框
+                                <option value="@item.MusicListID" th:each="dict : ${type}" th:value="${dict.@item.MusicListID}" th:text="${dict.@item.MusicListType1 }">@item.MusicListType1</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">发布者：</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control text-box single-line" name="UserName" id="UserName" />
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">添加</button>
+        </form>
+    </div>
+</body>
+</html>

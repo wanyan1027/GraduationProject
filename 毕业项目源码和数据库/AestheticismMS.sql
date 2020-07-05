@@ -44,14 +44,19 @@ insert into Administer values
 ('鹿鹿','WanYan','123456','13873099665',''),
 ('Admin','Admin','123456','13773069835','')
 
+
 --歌手表
 create table Singer
 (
 SingerID int primary key identity(1,1) not null, --歌手编号
 SingerName nvarchar(20) not null,  --歌手名字
 [SingerSex] nvarchar(5) check([SingerSex]='男' or [SingerSex]='女') NOT NULL,--歌手性别
-SingerPohoto nvarchar(100)  --歌手头像
+SingerPohoto nvarchar(4000)  --歌手头像
 )
+
+
+alter table Singer alter column SingerPohoto nvarchar(4000)
+
 select * from Singer
 insert into Singer values
 ('林俊杰','男','1.jpg'),
@@ -59,8 +64,10 @@ insert into Singer values
 ('鹿晗','男','3.jpg'),
 ('戚薇','女','4.jpg'),
 ('司南','女','5.jpg'),
-('王嘉尔','男','6.jpg')
-
+('王嘉尔','男','6.jpg'),
+('周深','男','1.jpg'),
+('泰勒斯威夫特','女','2.jpg'),
+('Owl City','男','2.jpg')
 go
 --音乐列表
 create table MusicList
@@ -81,6 +88,13 @@ insert into MusicList values
 ('Lucky Lucky','2.0M','...',5,5),
 ('冬眠','3.5M','...',6,6),
 ('巴比龙','4.8M','...',7,7)
+
+
+insert into MusicList values
+('咖啡','4.8M','...',4,1009),
+('大鱼','4.5M','...',10,1009),
+('22','4.8M','...',11,1009),
+('The Saltwater Room','4.5M','...',12,1009)
 --类型-是歌曲类型？歌曲类型和歌手类型都要
 create table MusicListType
 (

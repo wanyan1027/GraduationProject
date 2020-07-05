@@ -17,9 +17,9 @@ namespace Aestheticism_Music.Controllers
         private AestheticismMSEntities db = new AestheticismMSEntities();
 
         // GET: Administers
-        public ActionResult Index(int?page=null)
+        public ActionResult Index(int?page=null, string AdministerName = "")
         {
-            List<Administer> admin = db.Administer.OrderByDescending(p => p.AdministerID).ToList();
+            List<Administer> admin = db.Administer.Where(p => AdministerName == "" || p.AdministerName.Contains(AdministerName)).OrderByDescending(p => p.AdministerID).ToList();
 
             //当前页码  
             // ?? 空合并运算符，用于为可为空的值类型和引用类型定义默认值。
@@ -35,13 +35,13 @@ namespace Aestheticism_Music.Controllers
             return View(adminPagedList);
         }
 
-        [HttpPost]
-        public ActionResult Index(string AdministerName="")
-        {
-            List<Administer> list = db.Administer.Where(p => AdministerName == "" || p.AdministerName.Contains(AdministerName)).ToList();
-            ViewBag.name = AdministerName;
-            return View(list);
-        }
+        //[HttpPost]
+        //public ActionResult Index(string AdministerName="")
+        //{
+        //    List<Administer> list = db.Administer.Where(p => AdministerName == "" || p.AdministerName.Contains(AdministerName)).ToList();
+        //    ViewBag.name = AdministerName;
+        //    return View(list);
+        //}
 
         // GET: Administers/Details/5
         public ActionResult Details(int? id)

@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Controllers\MusicListsController.cs" />
+    <Compile Include="Controllers\SingersController.cs" />
     <Compile Include="Controllers\UserMusicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,11 +199,19 @@
     <Content Include="Content\css\cm-overlay.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\fontawesome-all.min.css" />
-    <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\css\style1.css" />
     <Content Include="Content\css\tooplate-style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\footer\css\style.css" />
+    <Content Include="Content\footer\img\1.jpg" />
+    <Content Include="Content\footer\img\2.jpg" />
+    <Content Include="Content\footer\img\3.jpg" />
+    <Content Include="Content\footer\img\4.jpg" />
+    <Content Include="Content\footer\img\5.jpg" />
+    <Content Include="Content\footer\js\index.js" />
+    <Content Include="Content\footer\js\jquery.min.js" />
+    <Content Include="Content\footer\mp3\1.mp3" />
+    <Content Include="Content\footer\mp3\2.mp3" />
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\bg.jpg" />
@@ -339,8 +348,23 @@
     <Content Include="Content\layui\lay\modules\upload.js" />
     <Content Include="Content\layui\lay\modules\util.js" />
     <Content Include="Content\LoginCss\css\style.css" />
+    <Content Include="Content\Music\22.mp3" />
+    <Content Include="Content\Music\css\style.css" />
+    <Content Include="Content\Music\img\foreground.png" />
+    <Content Include="Content\Music\img\midground.png" />
+    <Content Include="Content\Music\img\preview.jpg" />
+    <Content Include="Content\Music\The Saltwater Room.mp3" />
+    <Content Include="Content\Music\zzsc.mp3" />
     <Content Include="Content\Music\与我无关.mp3" />
+    <Content Include="Content\Music\修炼爱情.mp3" />
+    <Content Include="Content\Music\冬眠.mp3" />
+    <Content Include="Content\Music\咖啡.mp3" />
+    <Content Include="Content\Music\嗜好.mp3" />
+    <Content Include="Content\Music\嚣张.mp3" />
+    <Content Include="Content\Music\大鱼.mp3" />
     <Content Include="Content\Music\感谢你曾来过.mp3" />
+    <Content Include="Content\Music\晚安.mp3" />
+    <Content Include="Content\Music\爱存在.mp3" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
@@ -400,14 +424,11 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\index.js" />
-    <Content Include="Scripts\jplayer.playlist.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.jplayer.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -459,7 +480,17 @@
     <Content Include="Views\MusicLists\Edit.cshtml" />
     <Content Include="Views\MusicLists\Index.cshtml" />
     <Content Include="Views\Music\Index.cshtml" />
-    <Content Include="Views\Music\Document.cshtml" />
+    <Content Include="Views\Music\Listen.cshtml" />
+    <Content Include="Views\Music\Coffee.cshtml" />
+    <Content Include="Views\Music\Two.cshtml" />
+    <Content Include="Views\Music\Room.cshtml" />
+    <Content Include="Views\Music\Fish.cshtml" />
+    <Content Include="Views\Music\Create.cshtml" />
+    <Content Include="Views\Singers\Create.cshtml" />
+    <Content Include="Views\Singers\Delete.cshtml" />
+    <Content Include="Views\Singers\Details.cshtml" />
+    <Content Include="Views\Singers\Edit.cshtml" />
+    <Content Include="Views\Singers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
