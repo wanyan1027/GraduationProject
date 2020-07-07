@@ -203,15 +203,6 @@
     <Content Include="Content\css\tooplate-style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\footer\css\style.css" />
-    <Content Include="Content\footer\img\1.jpg" />
-    <Content Include="Content\footer\img\2.jpg" />
-    <Content Include="Content\footer\img\3.jpg" />
-    <Content Include="Content\footer\img\4.jpg" />
-    <Content Include="Content\footer\img\5.jpg" />
-    <Content Include="Content\footer\js\index.js" />
-    <Content Include="Content\footer\js\jquery.min.js" />
-    <Content Include="Content\footer\mp3\1.mp3" />
-    <Content Include="Content\footer\mp3\2.mp3" />
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\bg.jpg" />
@@ -363,6 +354,7 @@
     <Content Include="Content\Music\嚣张.mp3" />
     <Content Include="Content\Music\大鱼.mp3" />
     <Content Include="Content\Music\感谢你曾来过.mp3" />
+    <Content Include="Content\Music\把回忆拼好给你.mp3" />
     <Content Include="Content\Music\晚安.mp3" />
     <Content Include="Content\Music\爱存在.mp3" />
     <Content Include="Content\PagedList.css" />
@@ -383,6 +375,14 @@
       <DependentUpon>AestheticismDB.edmx</DependentUpon>
       <LastGenOutput>AestheticismDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AplayerJSCS\APlayer.min.css" />
+    <Content Include="Scripts\AplayerJSCS\APlayer.min.js" />
+    <Content Include="Scripts\AplayerJSCS\color-thief.js" />
+    <Content Include="Scripts\AplayerJSCS\color-thief.min.js" />
+    <Content Include="Scripts\AplayerJSCS\hls.js" />
+    <Content Include="Scripts\AplayerJSCS\lrc.js" />
+    <Content Include="Scripts\AplayerJSCS\meting.js" />
+    <Content Include="Scripts\AplayerJSCS\player.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\AestheticismDB.edmx">
@@ -423,6 +423,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\AplayerJSCS\APlayer.min.css.map" />
+    <Content Include="Scripts\AplayerJSCS\APlayer.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -491,6 +493,7 @@
     <Content Include="Views\Singers\Details.cshtml" />
     <Content Include="Views\Singers\Edit.cshtml" />
     <Content Include="Views\Singers\Index.cshtml" />
+    <Content Include="Views\Music\Aduio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

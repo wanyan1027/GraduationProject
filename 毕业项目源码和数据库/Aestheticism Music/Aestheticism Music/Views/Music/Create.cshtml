@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="form-group form-control-sm">
-        <form action="/Music/Create" method="post">
+        <form action="/Music/Create" method="post" enctype="multipart/form-data">
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-10">
@@ -41,8 +41,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlFile1"></label>
-                    <input type="file" class="form-control-file" id="MusicListPath" name="MusicListPath">
+                    <label class="control-label col-md-2" for="MusicListPath">歌曲路径：</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" id="MusicListPath" name="MusicListPath" type="file" />
+                    </div>
                 </div>
 
                 <div class="form-group">

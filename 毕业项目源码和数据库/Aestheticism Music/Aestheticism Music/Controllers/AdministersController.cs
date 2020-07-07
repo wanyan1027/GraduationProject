@@ -27,7 +27,7 @@ namespace Aestheticism_Music.Controllers
             int pageNum = page ?? 1;
 
             //每页显示多少条
-            int pageSize = 3;
+            int pageSize = 5;
 
             //通过ToPagedList扩展方法进行分页
             //参数：当前页、每页显示的页数
@@ -140,10 +140,19 @@ namespace Aestheticism_Music.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Administer administer = db.Administer.Find(id);
-            db.Administer.Remove(administer);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            List< Administer> administer = db.Administer.Where(p=>p.AdministerID==id).ToList();
+            if (administer.Count>0)
+            {
+                return Content("<script>alert('请删除管理员的绑定，再来删除管理员哦！');history.back(-1)</script>");
+            }
+            else
+            {
+                var admin = db.Administer.Find(id);
+                db.Administer.Remove(admin);
+                db.SaveChanges();
+                return Content("<script>alert('删除成功！');history.back(-1)</script>");
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

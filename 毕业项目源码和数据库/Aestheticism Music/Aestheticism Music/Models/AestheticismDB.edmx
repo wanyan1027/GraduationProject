@@ -33,7 +33,7 @@
           <Property Name="MusicListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MusicListName" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="MusicListFileSize" Type="nvarchar" MaxLength="200" />
-          <Property Name="MusicListPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="MusicListPath" Type="nvarchar" MaxLength="4000" />
           <Property Name="SingerID" Type="int" />
           <Property Name="UserID" Type="int" />
         </EntityType>
@@ -219,7 +219,7 @@
           <Property Name="MusicListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MusicListName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MusicListFileSize" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="MusicListPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MusicListPath" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="SingerID" Type="Int32" />
           <Property Name="UserID" Type="Int32" />
           <NavigationProperty Name="Discuss" Relationship="Self.FK__Discuss__MusicLi__20C1E124" FromRole="MusicList" ToRole="Discuss" />

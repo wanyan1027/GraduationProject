@@ -44,42 +44,49 @@ namespace Aestheticism_Music.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string MusicListName,string MusicListFileSize,string MusicListPath, string SingerName, string UserName, MusicList music)
+        public ActionResult Create( MusicList music,HttpPostedFileBase MusicListPath)
         {
-            Singer singer = db.Singer.SingleOrDefault(p=>p.SingerName==SingerName);
-            UserMusic user = db.UserMusic.SingleOrDefault(p=>p.UserName==UserName);
-            MusicList list = new MusicList()
+            if (MusicListPath != null)
             {
-                MusicListName = MusicListName,
-                MusicListFileSize=MusicListFileSize,
-                MusicListPath=MusicListPath,
-                SingerID=singer.SingerID,
-                UserID=user.UserID
-            };
-            db.MusicList.Add(list);
+                //判断文件大小
+                if (MusicListPath.ContentLength > 0 && MusicListPath.ContentLength < 4194304)
+                {
+
+                    //获取上传文件路径
+                    string fileName = Path.GetFileName(MusicListPath.FileName);
+                    //获取文件后缀名【两种方式-------截取==jpg，，，GetExtension== .jpg】
+                    //string suff = fileName.Substring(fileName.LastIndexOf(".")+1);
+                    string suff = Path.GetExtension(fileName);
+
+
+                    //判断文件格式
+                    if (suff == ".mp3")
+                    {
+                        //保存上传文件的路径
+                        MusicListPath.SaveAs(Server.MapPath("~/Content/Music/" + MusicListPath.FileName));
+                        //获取上传文件名，用于后期拿图片
+                        ViewBag.mp3 = MusicListPath.FileName;
+                        //存入数据库字段中
+                        music.MusicListPath = MusicListPath.FileName;
+                    }
+                    else
+                    {
+                        return Content("<script>alert('文件格式不正确！');history.back(-1)</script>");
+                    }
+                }
+                else
+                {
+                    return Content("<script>alert('文件格式不正确！');history.back(-1)</script>");
+                }
+            }
+            else
+            {
+                return Content("<script>alert('文件格式不正确！');history.back(-1)</script>");
+            }
+            music.MusicListPath = MusicListPath.FileName.ToString();
+            db.MusicList.Add(music);
             db.SaveChanges();
-
-            ////音频文件的判断
-            //HttpPostedFileBase file = Request.Files["MusicListPath"];
-            //if (file != null)
-            //{
-            //    try
-            //    {
-            //        var filename = Path.Combine(Request.MapPath("~/Content/Music"), file.FileName);
-            //        file.SaveAs(filename);
-            //        return Content("<script>alert('上传成功！！');history.go(-1)</script>");
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        return Content(string.Format("上传文件出现异常：{0}", ex.Message));
-            //    }
-
-            //}
-            //else
-            //{
-            //    return Content("没有文件需要上传！");
-            //}
-            return View();
+            return Content("<script>window.location.href='/Music/Index/" + music.MusicListID + "'</script>");
 
         }
 
@@ -182,6 +189,15 @@ namespace Aestheticism_Music.Controllers
             List<MusicList> list = db.MusicList.ToList();
             ViewBag.list = list;
             return View(list);
+        }
+
+        /// <summary>
+        /// 播放歌曲
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Aduio()
+        {
+            return View();
         }
     }
 }

@@ -69,6 +69,9 @@ insert into Singer values
 ('泰勒斯威夫特','女','2.jpg'),
 ('Owl City','男','2.jpg')
 go
+
+
+
 --音乐列表
 create table MusicList
 (
@@ -79,6 +82,8 @@ create table MusicList
 	SingerID [int] foreign key(SingerID) references Singer(SingerID),  --歌手编号
 	[UserID] [int] foreign key([UserID]) references UserMusic([UserID])   --歌曲发布者,一般都是那id作为主键
 )
+
+alter table MusicList alter column MusicListPath nvarchar(4000)
 select * from MusicList
 insert into MusicList values
 ('修炼爱情','5.0M','...',2,1),

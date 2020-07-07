@@ -27,7 +27,7 @@ namespace Aestheticism_Music.Controllers
             int pageNum = page ?? 1;
 
             //每页显示多少条
-            int pageSize = 3;
+            int pageSize = 5;
 
             //通过ToPagedList扩展方法进行分页
             //参数：当前页、每页显示的页数
@@ -88,17 +88,17 @@ namespace Aestheticism_Music.Controllers
                     }
                     else
                     {
-                        ViewBag.Message = "文件格式不正确！";
+                        return Content("<script>alert('文件格式不正确！');history.back(-1)</script>");
                     }
                 }
                 else
                 {
-                    ViewBag.Message = "文件大小不符合要求！";
+                    return Content("<script>alert('文件大小不符合要求！');history.back(-1)</script>");
                 }
             }
             else
             {
-                ViewBag.Message = "请上传文件！";
+                return Content("<script>alert('请上传文件！');history.back(-1)</script>");
             }
             singer.SingerPohoto = file.FileName.ToString();
                 db.Singer.Add(singer);
@@ -153,17 +153,17 @@ namespace Aestheticism_Music.Controllers
                     }
                     else
                     {
-                        ViewBag.Message = "文件格式不正确！";
+                        return Content("<script>alert('文件格式不正确！');history.back(-1)</script>");
                     }
                 }
                 else
                 {
-                    ViewBag.Message = "文件大小不符合要求！";
+                    return Content("<script>alert('文件大小不符合要求！');history.back(-1)</script>");
                 }
             }
             else
             {
-                ViewBag.Message = "请上传文件！";
+                return Content("<script>alert('请上传文件！');history.back(-1)</script>");
             }
             singer.SingerPohoto = file.FileName.ToString();
             db.Entry(singer).State = EntityState.Modified;
@@ -192,10 +192,19 @@ namespace Aestheticism_Music.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Singer singer = db.Singer.Find(id);
-            db.Singer.Remove(singer);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            List< Singer> singer  = db.Singer.Where(p=>p.SingerID==id).ToList();
+            if (singer.Count>0)
+            {
+                return Content("<script>alert('歌手是不能删除的哦！');history.back(-1)</script>");
+            }
+            else
+            {
+                var singers = db.Singer.Find(id);
+                db.Singer.Remove(singers);
+                db.SaveChanges();
+                return Content("<script>alert('删除成功！');history.back(-1)</script>");
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

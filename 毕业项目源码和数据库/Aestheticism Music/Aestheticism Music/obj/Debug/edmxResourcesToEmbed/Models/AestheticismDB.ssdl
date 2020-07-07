@@ -28,7 +28,7 @@
     <Property Name="MusicListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MusicListName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="MusicListFileSize" Type="nvarchar" MaxLength="200" />
-    <Property Name="MusicListPath" Type="nvarchar" MaxLength="50" />
+    <Property Name="MusicListPath" Type="nvarchar" MaxLength="4000" />
     <Property Name="SingerID" Type="int" />
     <Property Name="UserID" Type="int" />
   </EntityType>
